@@ -26,8 +26,11 @@
             "/ mxw/vim-jsx required pangloss/vim-javascript
             "/ see: https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
 
+        Plug 'https://github.com/cakebaker/scss-syntax.vim'
+        Plug 'https://github.com/hail2u/vim-css3-syntax'
+
         Plug 'vim-scripts/c.vim'
-        Plug 'vim-scripts/applescript.vim'
+        Plug 'https://github.com/vim-scripts/applescript.vim'
 
         Plug 'Chiel92/vim-autoformat'
 
@@ -239,7 +242,8 @@
             "set guifont=Osaka-Mono:h14
             "set guifont=Monaco:h12
             "set guifont=Source\ Code\ Pro\ Light:h12
-            set guifont=Source\ Code\ Pro\ ExtraLight:h12
+            "set guifont=Source\ Code\ Pro\ ExtraLight:h12
+            set guifont=Inconsolata:h14
             " set guifont=Consolas:h12
         elseif has("gui_win32")
             set guifont=Consolas:h9:cANSI
