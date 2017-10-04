@@ -39,6 +39,8 @@
         Plug 'https://github.com/vim-syntastic/syntastic'
         Plug 'mtscout6/syntastic-local-eslint.vim'
 
+        Plug 'https://github.com/juvenn/mustache.vim'
+
     call plug#end()
 
     "/ junegunn/vim-easy-align {
