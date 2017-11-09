@@ -34,12 +34,13 @@
 
         Plug 'Chiel92/vim-autoformat'
 
-        Plug 'cjrh/vim-conda'
+        " Plug 'cjrh/vim-conda'
 
         Plug 'https://github.com/vim-syntastic/syntastic'
         Plug 'mtscout6/syntastic-local-eslint.vim'
 
         Plug 'https://github.com/juvenn/mustache.vim'
+        Plug 'https://github.com/Shougo/denite.nvim'
 
     call plug#end()
 
