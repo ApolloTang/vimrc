@@ -62,6 +62,13 @@
     "/ keith/swift.vim {
       let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
     "/ }
+
+    "/ Shougo/denite.vim {
+      function! Fuz()
+        Denite file_rec
+      endfunction
+      command Cfuz call Fuz() <bar> :echo "Fuz() => :Denite file_rec"
+    "/ }
 " }
 
 " call pathogen#infect()
