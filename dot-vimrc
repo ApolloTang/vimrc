@@ -813,14 +813,17 @@ nmap <C-Down> ]e`[            " Bubling down one line
 " }
 
 " Buffer {----------------------------------------------------------------
-    " from:> http://stackoverflow.com/questions/8450919/how-can-i-delete-all-hidden-buffers
-    function! DeleteHiddenBuffers()
-        let tpbl=[]
-        call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-        for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-            silent execute 'bwipeout' buf
-        endfor
-    endfunction
+  " The following function delete all hidden buffers
+  " from:> http://stackoverflow.com/questions/8450919/how-can-i-delete-all-hidden-buffers
+  function! DeleteHiddenBuffers()
+      let tpbl=[]
+      call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+      for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+          silent execute 'bwipeout' buf
+      endfor
+  endfunction
+  command Cdhbs call DeleteHiddenBuffers() <bar> :echo ":call DeleteHiddenBuffers()"
+
 
   " @TODO folllowing has not being implimented
   "
