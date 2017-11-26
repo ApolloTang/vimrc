@@ -42,6 +42,9 @@
         Plug 'https://github.com/juvenn/mustache.vim'
         Plug 'https://github.com/Shougo/denite.nvim'
 
+        Plug 'https://github.com/keith/swift.vim'
+        Plug 'https://github.com/TheCodedSelf/syntastic-swift'
+
     call plug#end()
 
     "/ junegunn/vim-easy-align {
@@ -54,6 +57,10 @@
     "/ mxw/vim-jsx {
         "/ treat .js as .jsx
         let g:jsx_ext_required = 0
+    "/ }
+
+    "/ keith/swift.vim {
+      let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
     "/ }
 " }
 
@@ -557,6 +564,11 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 inoremap <c-h> <left>
+
+"/ moving aroung in command mode
+"/ https://stackoverflow.com/a/15852162/3136861
+cnoremap <c-h> <left>
+cnoremap <c-l> <right>
 
 "/ go to middle of current line
 "/ http://superuser.com/questions/216411/go-to-middle-of-line-in-vim
