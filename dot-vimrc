@@ -45,6 +45,23 @@
         Plug 'https://github.com/keith/swift.vim'
         Plug 'https://github.com/TheCodedSelf/syntastic-swift'
 
+        if has('nvim')
+          Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        else
+          Plug 'Shougo/deoplete.nvim'
+          Plug 'roxma/nvim-yarp'
+          Plug 'roxma/vim-hug-neovim-rpc'
+        endif
+        Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
+        " "/ https://gitlab.com/mixedCase/deoplete-omnisharp
+        " Plug 'OmniSharp/omnisharp-vim', { 'do': 'cd server && xbuild' }
+        " Plug 'tpope/vim-dispatch'
+        " Plug 'https://gitlab.com/mixedCase/deoplete-omnisharp.git'
+        "
+        " " "/ https://github.com/Shougo/deoplete.nvim/issues/217
+        " " Plug 'https://github.com/Robzz/deoplete-omnisharp/'
+
     call plug#end()
 
     "/ junegunn/vim-easy-align {
@@ -69,6 +86,42 @@
       endfunction
       command Cfuz call Fuz() <bar> :echo "Fuz() => :Denite file_rec"
     "/ }
+
+    "/ Setting up deoplete and tern {
+      "/ https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
+      let g:deoplete#enable_at_startup = 1
+      if !exists('g:deoplete#omni#input_patterns')
+        let g:deoplete#omni#input_patterns = {}
+      endif
+      "let g:deoplete#disable_auto_complete = 1
+      autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+      "/ omnifuncs
+      augroup omnifuncs
+        autocmd!
+        autocmd FileType javascript.jsx setlocal omnifunc=javascriptcomplete#CompleteJS
+        " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+        "/ https://github.com/OmniSharp/omnisharp-vim/issues/293
+        autocmd FileType cs setlocal omnifunc=OmniSharpVim#Complete
+      augroup end
+
+      "/ tern
+      if exists('g:plugs["tern_for_vim"]')
+        let g:tern_show_argument_hints = 'on_hold'
+        let g:tern_show_signature_in_pum = 1
+        autocmd FileType javascript.jsx setlocal omnifunc=tern#Complete
+      endif
+
+      "/ deoplete tab-complete
+      inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+      "/ tern
+      autocmd FileType javascript.jsx nnoremap <silent> <buffer> gb :TernDef<CR>
+    }
+
 " }
 
 " call pathogen#infect()
