@@ -212,7 +212,6 @@
     set listchars=tab:·\ ,trail:·
 
 
-
     "\ ---------------
     "\  Status
     "\ ---------------
@@ -379,6 +378,18 @@
     inoremap <silent><F3> <C-O>:lprevious<CR>
     vnoremap <silent><F3> :lprevious<CR>
 " }
+
+"\ Terminal in vim {
+  "\ https://stackoverflow.com/a/46822285/3136861
+
+  tnoremap <ESC><ESC> <C-\><C-N>
+  "\ The above allow hitting ESC twice exit exit terminal mode back to normal-mode
+  "\ https://stackoverflow.com/a/29293191/3136861
+
+  set shell=bash\ --login
+  "\ The above will load my .bashrc when :term
+  "\ https://stackoverflow.com/questions/1694599/how-do-i-get-vims-sh-command-to-source-my-bashrc
+"}
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
