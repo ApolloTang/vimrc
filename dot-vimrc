@@ -58,6 +58,9 @@
 
         Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
+        Plug 'https://github.com/Shougo/vimproc.vim', {'do' : 'make'}
+        Plug 'https://github.com/Shougo/vimshell.vim'
+
     call plug#end()
 
     "/ junegunn/vim-easy-align {
@@ -879,6 +882,34 @@ nmap <C-Down> ]e`[            " Bubling down one line
     map <Leader>dp :let @+ = expand("%:p:h") \| echo 'cb> ' . @+<CR>
     " Directory Name, eg. nvim
     map <Leader>dn :let @+ = expand("%:p:h:t") \| echo 'cb> ' . @+<CR>
+
+    function! GetPath_fullpath()
+      " File Full Path, eg. /home/user/nvim/init.vim
+      let @+ = expand("%:p")
+      echo 'cb> ' . @+
+    endfunction
+    command! CpathFull call GetPath_fullpath()
+
+    function! GetPath_base()
+      " File Name + ext, eg. init.vim in /home/user/nvim/init.vim
+      let @+ = expand("%:t")
+      echo 'cb> ' . @+
+    endfunction
+    command! CpathBase call GetPath_base()
+
+    function! GetPath_dir()
+      " File Path, eg. /home/user/nvim in /home/user/nvim/init.vim
+      let @+ = expand("%:p:h")
+      echo 'cb> ' . @+
+    endfunction
+    command! CpathDir call GetPath_dir()
+
+    function! GetPath_dirName()
+      " File Path, eg. /home/user/nvim in /home/user/nvim/init.vim
+      let @+ = expand("%:p:h:t")
+      echo 'cb> ' . @+
+    endfunction
+    command! CpathDirName call GetPath_dirName()
 
     " Ref: http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim/37192216#37192216
 " }
