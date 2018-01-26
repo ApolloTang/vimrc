@@ -83,7 +83,7 @@
       function! Fuz()
         Denite file_rec
       endfunction
-      command Cfuz call Fuz() <bar> :echo "Fuz() => :Denite file_rec"
+      command! Cfuz call Fuz() <bar> :echo "Fuz() => :Denite file_rec"
     "/ }
 " }
 
@@ -856,7 +856,7 @@ nmap <C-Down> ]e`[            " Bubling down one line
           silent execute 'bwipeout' buf
       endfor
   endfunction
-  command Cdhbs call DeleteHiddenBuffers() <bar> :echo ":call DeleteHiddenBuffers()"
+  command! Cdhbs call DeleteHiddenBuffers() <bar> :echo ":call DeleteHiddenBuffers()"
 
 
   " @TODO folllowing has not being implimented
