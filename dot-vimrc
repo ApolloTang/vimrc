@@ -228,8 +228,10 @@
     endfunction
 
     "\ Status information at bottom of screen
+    "\ Ref: https://stackoverflow.com/questions/4390011/how-do-you-write-text-on-the-status-line-with-the-filename-row-and-col-number-w
+    "\
     " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-    set statusline=%n\|%{WindowNumber()}\|%<%.99f\ %=%10(%H%W%M%R\/%l\/%c\/%v\%)
+    set statusline=%n\|%{WindowNumber()}\|%<%.99f\ %=%10(%H%W%M%R\|%p%%\|%l\|%c\|%v\%)
 
     "\ Status line color based on mode
     "\ Ref: http://stackoverflow.com/questions/9065941/how-can-i-change-vim-status-line-colour
