@@ -61,6 +61,7 @@
         Plug 'https://github.com/Shougo/vimproc.vim', {'do' : 'make'}
         Plug 'https://github.com/Shougo/vimshell.vim'
 
+        Plug 'https://github.com/posva/vim-vue'
     call plug#end()
 
     "/ junegunn/vim-easy-align {
