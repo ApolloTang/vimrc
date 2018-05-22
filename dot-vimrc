@@ -264,7 +264,8 @@
     set background=dark
     " colorscheme grb256
     " colorscheme koehler
-    colorscheme apollotang
+    " colorscheme apollotang
+    colorscheme louver
     " set transparency=15
 
     if has("gui_running")
