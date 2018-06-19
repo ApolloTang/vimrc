@@ -64,6 +64,7 @@
         Plug 'https://github.com/posva/vim-vue'
 
         Plug 'https://github.com/Konfekt/FastFold'
+        Plug 'https://github.com/tmhedberg/SimpylFold'
     call plug#end()
 
     "/ junegunn/vim-easy-align {
@@ -105,6 +106,10 @@
       let g:r_syntax_folding = 1
       let g:rust_fold = 1
       let g:php_folding = 1
+    "/ }
+
+    "/ tmhedberg/SimpylFold {
+      let g:SimpylFold_docstring_preview = 1 " 0=disable; 1=enable
     "/ }
 " }
 
