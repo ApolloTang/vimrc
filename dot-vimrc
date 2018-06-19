@@ -474,7 +474,7 @@ autocmd BufReadPost *
 \ endif
 
 au BufNewFile,BufRead *.jade set filetype=jade
-au BufRead,BufNewFile *.sass setfiletype sass
+au BufRead,BufNewFile *.sass set filetype=sass
 
 "for ruby, autoindent with two spaces, always expand tabs
 "autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
@@ -482,15 +482,8 @@ autocmd FileType sass, scss, jade set ai sw=4,sts=4 et
 
 "/ Syntax for python
 "autocmd FileType python set sw=4 sts=4 et
-au BufNewFile,BufRead *.py
-  \ set tabstop=4
-  \ set softtabstop=4
-  \ set shiftwidth=4
-  "\ set textwidth=79
-  \ set expandtab
-  \ set autoindent
-  "\ set fileformat=unix
-  "/ Ref: https://realpython.com/vim-and-python-a-match-made-in-heaven/
+au BufNewFile,BufRead *.py set ts=4 sts=4 sw=4 ai et filetype=python
+"/ Ref: https://realpython.com/vim-and-python-a-match-made-in-heaven/
 
 
 "/ Syntax for coffee script:
