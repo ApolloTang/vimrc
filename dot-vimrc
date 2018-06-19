@@ -62,6 +62,8 @@
         Plug 'https://github.com/Shougo/vimshell.vim'
 
         Plug 'https://github.com/posva/vim-vue'
+
+        Plug 'https://github.com/Konfekt/FastFold'
     call plug#end()
 
     "/ junegunn/vim-easy-align {
@@ -85,6 +87,24 @@
         Denite file_rec
       endfunction
       command! Cfuz call Fuz() <bar> :echo "Fuz() => :Denite file_rec"
+    "/ }
+
+    "/ Konfekt/FastFold {
+      let g:fastfold_savehook = 0 " update folds manually
+      let g:fastfold_fold_command_suffixes = [] " use standard folding keystroke
+
+      let g:markdown_folding = 1
+      let g:tex_fold_enabled = 1
+      let g:vimsyn_folding = 'af'
+      let g:xml_syntax_folding = 1
+      let g:javaScript_fold = 1
+      let g:sh_fold_enabled= 7
+      let g:ruby_fold = 1
+      let g:perl_fold = 1
+      let g:perl_fold_blocks = 1
+      let g:r_syntax_folding = 1
+      let g:rust_fold = 1
+      let g:php_folding = 1
     "/ }
 " }
 
