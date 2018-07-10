@@ -989,6 +989,31 @@ nmap <C-Down> ]e`[            " Bubling down one line
     if !WINDOWS()
         "echom 'Runtime envrionment: Not windows'
         map <Leader>fd :let g:far#cwd = system('pwd')
+
+        "/ turn on rg
+        "/ from https://github.com/brooth/far.vim/pull/4
+        let cmd = ['rg', '{pattern}', '--vimgrep',
+                    \   '--max-count={limit}', '--glob={file_mask}']
+        if &smartcase
+            call add(cmd, '--smart-case')
+        endif
+        if &ignorecase
+            call add(cmd, '--ignore-case')
+        else
+            call add(cmd, '--case-sensetive')
+        endif
+
+        let g:far#sources = {}
+        let g:far#sources.rg = {}
+        let g:far#sources.rg.fn = 'far.sources.shell.search'
+        let g:far#sources.rg.executor = 'py3'
+        let g:far#sources.rg.args = {}
+        let g:far#sources.rg.args.cmd = cmd
+        let g:far#sources.rg.args.fix_cnum = 'next'
+        let g:far#sources.rg.args.items_file_min = 30
+        let g:far#sources.rg.args.expand_cmdargs = 1
+        "/ end turn on rg
+
     endif
     if WINDOWS()
         "echom 'Runtime envrionment: Windows'
