@@ -21,10 +21,20 @@
         Plug 'brooth/far.vim'
             "/ Find and replace text through multiple files.
 
-        Plug 'pangloss/vim-javascript'
+        " Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
-            "/ mxw/vim-jsx required pangloss/vim-javascript
-            "/ see: https://jaxbot.me/articles/setting-up-vim-for-react-js-jsx-02-03-2015
+            "/ mxw/vim-jsx required pangloss/vim-javascript or yasjs.vim
+
+        Plug 'https://github.com/othree/yajs.vim'
+        Plug 'https://github.com/othree/es.next.syntax.vim'
+            "/ above is replacing pangloss/vim-javascript'
+            "/ es.next.syntax.vim is needed for yajs.vim'
+
+        Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+            "/ use with yajs.vim, need to exec the follow:
+            "/ $ mkdir -p ~/.vim/after/indent # if you use `nvim`, then ~/.config/nvim/after/indent
+            "/ $ wget https://github.com/pangloss/vim-javascript/blob/master/indent/javascript.vim -O ~/.vim/after/indent/javascript.vim
+            "/ Apollo Note: I executed as instructed above but results in error, so I removed ~/.vim/after/indent
 
         Plug 'https://github.com/cakebaker/scss-syntax.vim'
         Plug 'https://github.com/hail2u/vim-css3-syntax'
@@ -112,6 +122,10 @@
 
     "/ tmhedberg/SimpylFold {
       let g:SimpylFold_docstring_preview = 1 " 0=disable; 1=enable
+    "/ }
+
+    "/ MaxMEllon/vim-jsx-pretty {
+      let g:vim_jsx_pretty_enable_jsx_highlight = 1 " default 1
     "/ }
 " }
 
