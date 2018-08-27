@@ -1002,6 +1002,69 @@ nmap <C-Down> ]e`[            " Bubling down one line
   "   :Bclose Name    " Close buffer named Name (as shown by :ls).
 "}
 
+
+" NerdTree Preview {-------------------------------------------------
+  "/ https://stackoverflow.com/questions/13119754/is-it-possible-to-just-view-files-content-when-traverse-nerdtree
+  "/ https://stackoverflow.com/a/22183492/3136861
+  let g:nerd_preview_enabled = 0
+  let g:preview_last_buffer  = 0
+
+  function! NerdTreePreview()
+    " Only on nerdtree window
+    if (&ft ==# 'nerdtree')
+      " Get filename
+      let l:filename = substitute(getline("."), "^\\s\\+\\|\\s\\+$","","g")
+
+      " Preview if it is not a folder
+      let l:lastchar = strpart(l:filename, strlen(l:filename) - 1, 1)
+      if (l:lastchar != "/" && strpart(l:filename, 0 ,2) != "..")
+
+        let l:store_buffer_to_close = 1
+        if (bufnr(l:filename) > 0)
+          " Don't close if the buffer is already open
+          let l:store_buffer_to_close = 0
+        endif
+
+        " Do preview
+        execute "normal go"
+
+        " Close previews buffer
+        if (g:preview_last_buffer > 0)
+          execute "bwipeout " . g:preview_last_buffer
+          let g:preview_last_buffer = 0
+        endif
+
+        " Set last buffer to close it later
+        if (l:store_buffer_to_close)
+          let g:preview_last_buffer = bufnr(l:filename)
+        endif
+      endif
+    elseif (g:preview_last_buffer > 0)
+      " Close last previewed buffer
+      let g:preview_last_buffer = 0
+    endif
+  endfunction
+
+  function! NerdPreviewToggle()
+    echo 'preview Toggled'
+    if (g:nerd_preview_enabled)
+      let g:nerd_preview_enabled = 0
+      augroup nerdpreview
+        autocmd!
+        augroup END
+    else
+      let g:nerd_preview_enabled = 1
+      augroup nerdpreview
+        autocmd!
+        autocmd CursorMoved * nested call NerdTreePreview()
+      augroup END
+    endif
+  endfunction
+
+  command! CpreviewToggle call NerdPreviewToggle()
+"}
+
+
 " Yank filename/dirname {-------------------------------------------------
     " copy result to the system clipboard and echo the result
     " the cb> prompt means the clipboard
