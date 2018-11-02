@@ -81,6 +81,10 @@
         "/ typescript syntax
         Plug 'https://github.com/leafgarland/typescript-vim'
 
+        "/ my theme
+        Plug 'https://github.com/ApolloTang/apollotang-light'
+        Plug 'https://github.com/ApolloTang/vim-color-apollotang'
+
     call plug#end()
 
     "/ junegunn/vim-easy-align {
