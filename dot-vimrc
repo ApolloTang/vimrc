@@ -87,6 +87,11 @@
 
     call plug#end()
 
+    "/ Valloric/YouCompleteMe {
+      let g:ycm_error_symbol = '>'
+      let g:ycm_warning_symbol = '•'
+    "}
+
     "/ junegunn/vim-easy-align {
         "/ Start interactive EasyAlign in visual mode (e.g. vipga)
         xmap ga <Plug>(EasyAlign)
