@@ -263,11 +263,13 @@
     set winheight=6
     set winminheight=5
 
-    "\ Display trailing white= spaces
+    "/ Display trailing white= spaces
     set encoding=utf-8
     set list
-    "set listchars=tab:·\ ,trail:·,eol:┆
-    set listchars=tab:·\ ,trail:·
+    set listchars=
+      \tab:·\ , "/ note there is a space before comma
+      \trail:·,
+      " \eol:¬
 
 
     "\ ---------------
