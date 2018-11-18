@@ -85,6 +85,9 @@
         Plug 'https://github.com/ApolloTang/apollotang-light'
         Plug 'https://github.com/ApolloTang/vim-color-apollotang'
 
+        "/ editorconfig/editorconfig-vim
+        Plug 'https://github.com/editorconfig/editorconfig-vim'
+
     call plug#end()
 
     "/ Valloric/YouCompleteMe {
