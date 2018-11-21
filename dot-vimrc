@@ -91,6 +91,8 @@
         "/ editorconfig/editorconfig-vim
         Plug 'https://github.com/editorconfig/editorconfig-vim'
 
+        Plug 'https://github.com/mattn/emmet-vim/'
+
     call plug#end()
 
     "/ Valloric/YouCompleteMe {
