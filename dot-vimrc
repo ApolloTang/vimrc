@@ -314,9 +314,9 @@
 
     function! InsertStatuslineColor(mode)
       if a:mode == 'i'
-        hi statusline guibg=black ctermfg=6 guifg=gold ctermbg=0
+        hi statusline guibg=black ctermfg=11 guifg=gold ctermbg=0
       elseif a:mode == 'r'
-        hi statusline guibg=white ctermfg=5 guifg=sienna ctermbg=0
+        hi statusline guibg=white ctermfg=9 guifg=sienna ctermbg=0
       else
         hi statusline guibg=red ctermfg=1 guifg=red ctermbg=0
       endif
@@ -327,11 +327,11 @@
       au InsertChange * call InsertStatuslineColor(v:insertmode)
       " au InsertLeave * hi statusline guibg=white ctermfg=8 guifg=gray50 ctermbg=15
       " au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
-      au InsertLeave * hi StatusLine cterm=reverse ctermbg=0 ctermfg=15 guifg=darkCyan guibg=white
+      au InsertLeave * hi StatusLine cterm=reverse ctermbg=0 ctermfg=14 guifg=darkCyan guibg=white
     endif
 
-    " default the statusline when entering Vim, but it has no effect
-    hi statusline guibg=white ctermfg=8 guifg=gold ctermbg=1u5
+    " default the statusline when entering Vim, work on terminal vim but it has no effect on macvim
+    hi statusline guibg=white ctermfg=14 guifg=darkCyan ctermbg=0
 
 
     "\ ---------------
