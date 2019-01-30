@@ -16,7 +16,9 @@
 
         Plug 'scrooloose/nerdtree'
         Plug 'tpope/vim-surround'
-        Plug 'tomtom/tcomment_vim'
+
+        " Plug 'tomtom/tcomment_vim'
+        Plug 'tpope/vim-commentary'
 
         Plug 'brooth/far.vim'
             "/ Find and replace text through multiple files.
