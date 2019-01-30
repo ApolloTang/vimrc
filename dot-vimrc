@@ -21,16 +21,19 @@
         Plug 'brooth/far.vim'
             "/ Find and replace text through multiple files.
 
-        " Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
-            "/ mxw/vim-jsx required pangloss/vim-javascript or yasjs.vim
+            "/ mxw/vim-jsx required pangloss/vim-javascript or yajs.vim
 
-        Plug 'https://github.com/othree/yajs.vim'
-        Plug 'https://github.com/othree/es.next.syntax.vim'
-            "/ above is replacing pangloss/vim-javascript'
+        Plug 'pangloss/vim-javascript'
+
+        " Plug 'https://github.com/othree/yajs.vim'
+            "/ yajs is a replacement of pangloss/vim-javascript' but is out of
+            "/ maintained
+
+        " Plug 'https://github.com/othree/es.next.syntax.vim'
             "/ es.next.syntax.vim is needed for yajs.vim'
 
-        Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+        " Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
             "/ use with yajs.vim, need to exec the follow:
             "/ $ mkdir -p ~/.vim/after/indent # if you use `nvim`, then ~/.config/nvim/after/indent
             "/ $ wget https://github.com/pangloss/vim-javascript/blob/master/indent/javascript.vim -O ~/.vim/after/indent/javascript.vim
@@ -92,6 +95,8 @@
         Plug 'https://github.com/editorconfig/editorconfig-vim'
 
         Plug 'https://github.com/mattn/emmet-vim/'
+
+        " Plug 'https://github.com/Quramy/tsuquyomi' // duplicate function of ycm
 
     call plug#end()
 
