@@ -33,7 +33,7 @@
         " Plug 'https://github.com/othree/es.next.syntax.vim'
             "/ es.next.syntax.vim is needed for yajs.vim'
 
-        " Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+        Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
             "/ use with yajs.vim, need to exec the follow:
             "/ $ mkdir -p ~/.vim/after/indent # if you use `nvim`, then ~/.config/nvim/after/indent
             "/ $ wget https://github.com/pangloss/vim-javascript/blob/master/indent/javascript.vim -O ~/.vim/after/indent/javascript.vim
