@@ -22,10 +22,11 @@
         Plug 'brooth/far.vim'
             "/ Find and replace text through multiple files.
 
-        Plug 'mxw/vim-jsx'
+        " Plug 'mxw/vim-jsx'
             "/ mxw/vim-jsx required pangloss/vim-javascript or yajs.vim
+            "/ mxw/vim-jsx (2019 Jan) is broken and is not actively maintain
 
-        Plug 'pangloss/vim-javascript'
+        " Plug 'pangloss/vim-javascript'
 
         " Plug 'https://github.com/othree/yajs.vim'
             "/ yajs is a replacement of pangloss/vim-javascript' but is out of
@@ -34,11 +35,16 @@
         " Plug 'https://github.com/othree/es.next.syntax.vim'
             "/ es.next.syntax.vim is needed for yajs.vim'
 
-        Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+        " Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
             "/ use with yajs.vim, need to exec the follow:
             "/ $ mkdir -p ~/.vim/after/indent # if you use `nvim`, then ~/.config/nvim/after/indent
             "/ $ wget https://github.com/pangloss/vim-javascript/blob/master/indent/javascript.vim -O ~/.vim/after/indent/javascript.vim
             "/ Apollo Note: I executed as instructed above but results in error, so I removed ~/.vim/after/indent
+
+
+        Plug 'neoclide/vim-jsx-improve'
+            "/ this is the replacement for mxw/vim-jsx
+
 
         Plug 'https://github.com/cakebaker/scss-syntax.vim'
         Plug 'https://github.com/hail2u/vim-css3-syntax'
