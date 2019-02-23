@@ -230,6 +230,14 @@
 " }
 
 
+
+" Python Setting {
+  set pythondll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
+  set pythonhome=/usr/local/Frameworks/Python.framework/Versions/3.7
+  set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
+  set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.7
+" }
+
 " Setting to sort { ------------------------------------------------------
     let mapleader=","
     let maplocalleader="\\"                 "\ leader that targat specific file type
