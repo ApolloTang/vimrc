@@ -107,10 +107,6 @@
 
     call plug#end()
 
-    "/ Valloric/YouCompleteMe {
-      let g:ycm_error_symbol = '>'
-      let g:ycm_warning_symbol = '•'
-    "}
 
     "/ junegunn/vim-easy-align {
         "/ Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -1148,6 +1144,14 @@ nmap <C-Down> ]e`[            " Bubling down one line
 
     " Ref: http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim/37192216#37192216
 " }
+
+
+"/ Valloric/YouCompleteMe {
+  let g:ycm_error_symbol = '>'
+  let g:ycm_warning_symbol = '•'
+  nnoremap <leader>vvdd :YcmCompleter GoTo<CR>
+"}
+
 
 " Working with Far plugin { ----------------------------------
     " Change search path to present working direcotry
