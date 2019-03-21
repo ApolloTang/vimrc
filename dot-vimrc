@@ -1228,5 +1228,9 @@ nmap <C-Down> ]e`[            " Bubling down one line
 " Deric shit that does not work:> set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/generated-public/*,*/node_modules/*
 " Windows ('noshellslash')
 
+""""/ Not sure what is next two line, I don't remember adding them
+"" vim:fdm=expr:fdl=0
+"" vim:fde=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
+
 " END .vimrc
 
