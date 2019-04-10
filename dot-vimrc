@@ -1153,57 +1153,70 @@ nmap <C-Down> ]e`[            " Bubling down one line
 "}
 
 
-"/ Far plugin configuration { ----------------------------------
 
-  function! EnableRipgrepForFar()
-    if !WINDOWS()
-      "/
-      "/ Ref:
-      "/ from https://github.com/brooth/far.vim/pull/4
-      "/
+"/ Far plugin configuration {{{ ----------------------------------
 
-      echom 'Enabling Ripgrep for Far'
-      let cmd = ['rg', '{pattern}', '--vimgrep',
-                  \   '--max-count={limit}', '--glob={file_mask}']
-      if &smartcase
-          call add(cmd, '--smart-case')
-      endif
-      if &ignorecase
-          call add(cmd, '--ignore-case')
-      else
-          call add(cmd, '--case-sensetive')
-      endif
+    function! EnableRipgrepForFar()
+        if !WINDOWS()
+          "/
+          "/ Ref:
+          "/ from https://github.com/brooth/far.vim/pull/4
+          "/
 
-      let g:far#sources = {}
-      let g:far#sources.rg = {}
-      let g:far#sources.rg.fn = 'far.sources.shell.search'
-      let g:far#sources.rg.executor = 'py3'
-      let g:far#sources.rg.args = {}
-      let g:far#sources.rg.args.cmd = cmd
-      let g:far#sources.rg.args.fix_cnum = 'next'
-      let g:far#sources.rg.args.items_file_min = 30
-      let g:far#sources.rg.args.expand_cmdargs = 1
-      echom 'Done enabling Ripgrep for Far'
-    endif
-  endfunction "/ EnableRipgrepForFar()
-  call EnableRipgrepForFar()
+          echom 'Enabling Ripgrep for Far'
+          let cmd = ['rg', '{pattern}', '--vimgrep',
+                      \   '--max-count={limit}', '--glob={file_mask}']
+          if &smartcase
+              call add(cmd, '--smart-case')
+          endif
+          if &ignorecase
+              call add(cmd, '--ignore-case')
+          else
+              call add(cmd, '--case-sensetive')
+          endif
 
-    if !WINDOWS()
+          let g:far#sources = {}
+          let g:far#sources.rg = {}
+          let g:far#sources.rg.fn = 'far.sources.shell.search'
+          let g:far#sources.rg.executor = 'py3'
+          let g:far#sources.rg.args = {}
+          let g:far#sources.rg.args.cmd = cmd
+          let g:far#sources.rg.args.fix_cnum = 'next'
+          let g:far#sources.rg.args.items_file_min = 30
+          let g:far#sources.rg.args.expand_cmdargs = 1
+          echom 'Done enabling Ripgrep for Far'
+        endif
+    endfunction "/ EnableRipgrepForFar()
+    call EnableRipgrepForFar()
+
+  "/ =====================
+  "/ Far working directory
+  "/ =====================
+    function! FarShowCwd()
+      echom 'g:far#cwd: '.g:far#cwd
+    endfunction "/ FarShowCwd()
+    command! CfarShowCwd call FarShowCwd()
+
+    function! FarSetCwd()
+      if !WINDOWS()
         "echom 'Runtime envrionment: Not windows'
-        map <Leader>fd :let g:far#cwd = system('pwd')
-    endif
-    if WINDOWS()
+        let _dir = system('pwd')
+      endif
+      if WINDOWS()
         "echom 'Runtime envrionment: Windows'
-        map <Leader>fd :let g:far#cwd = system('cd')
-    endif
-    if OSX()
-        "echom 'Runtime envrionment: OSX'
-    endif
-    if LINUX()
-        "echom 'Runtime envrionment: Linux'
-    endif
+        let _dir = system('cd')
+      endif
 
-" }
+      "/ _dir contain the char '^@', remove it
+      "/ Ref:
+      "/    superuser.com/questions/935574/get-rid-of-null-character-in-vim-variable
+      let g:far#cwd = substitute(_dir, '[[:cntrl:]]', '', 'g')
+      call FarShowCwd()
+    endfunction "/ FarSetCwd()
+    command! CfarSetCwd call FarSetCwd()
+
+
+"/ Far plugin configuration END }}}
 
 " Syntastic plugin { ----------------------------------------
     set statusline+=%#warningmsg#
