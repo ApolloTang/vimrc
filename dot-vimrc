@@ -1247,10 +1247,15 @@ nmap <C-Down> ]e`[            " Bubling down one line
   let g:javascript_plugin_flow = 1   " Enables syntax highlighting for Flow.
 " }
 
+"/ wildignore {{{ ---------------------------------------------------------
 
+  "/ Ref:
+  "/  stackoverflow.com/questions/11978291/how-do-i-use-wildignore-in-vim
+  "/  stackoverflow.com/questions/579871/can-i-make-vim-respect-my-gitignore-files/579886#579886
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
+  " Windows ('noshellslash')
 
-" Deric shit that does not work:> set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/generated-public/*,*/node_modules/*
-" Windows ('noshellslash')
+"/ }}}
 
 """"/ Not sure what is next two line, I don't remember adding them
 "" vim:fdm=expr:fdl=0
