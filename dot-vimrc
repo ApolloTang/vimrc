@@ -1190,7 +1190,8 @@ nmap <C-Down> ]e`[            " Bubling down one line
         " echom 'Done enabling Ripgrep for Far'
       endif
     endfunction "/ EnableRipgrepForFar()
-    call EnableRipgrepForFar()
+    " call EnableRipgrepForFar()
+    " let g:far#source = 'rg'
 
   "/ =====================
   "/ Far working directory
