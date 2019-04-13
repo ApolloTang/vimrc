@@ -1160,17 +1160,21 @@ nmap <C-Down> ]e`[            " Bubling down one line
   "/ Far enabling ripgrep
   "/ ====================
     "/ see: https://github.com/brooth/far.vim/issues/69
-    let g:far#source = 'rg'
+    command! CfarSrcRipgrep let g:far#source = 'rg' | echo 'g:far#source='.g:far#source
+    command! CfarSrcVimgrep let g:far#source = 'vimgrep' | echo 'g:far#source='.g:far#source
+    command! CfarSrcCurrent echom g:far#source
 
   "/ =====================
   "/ Far working directory
   "/ =====================
-    function! FarShowCwd()
+    function! FarPwd()
       echom 'g:far#cwd: '.g:far#cwd
-    endfunction "/ FarShowCwd()
-    command! CfarShowCwd call FarShowCwd()
+    endfunction "/ FarPwd()
+    command! CfarPwd call FarPwd()
 
-    function! FarSetCwd()
+    function! FarCd()
+      echom '[before] g:far#cwd='.g:far#cwd
+
       if !WINDOWS()
         "echom 'Runtime envrionment: Not windows'
         let _dir = system('pwd')
@@ -1184,9 +1188,10 @@ nmap <C-Down> ]e`[            " Bubling down one line
       "/ Ref:
       "/    superuser.com/questions/935574/get-rid-of-null-character-in-vim-variable
       let g:far#cwd = substitute(_dir, '[[:cntrl:]]', '', 'g')
-      call FarShowCwd()
-    endfunction "/ FarSetCwd()
-    command! CfarSetCwd call FarSetCwd()
+
+      echom '   [now] g:far#cwd='.g:far#cwd
+    endfunction "/ FarCd()
+    command! CfarCd call FarCd()
 
 "/ Far plugin configuration END }}}
 
