@@ -1156,17 +1156,25 @@ nmap <C-Down> ]e`[            " Bubling down one line
 
 "/ Far plugin configuration {{{ ----------------------------------
 
-  "/ ====================
+
+  "/ --------------------------
+  "/ Far uncomment the follwing
+  "/ and restart vim to enable
+  "/ far's debug mode
+  "/ --------------------------
+  let g:far#debug = 1
+
+  "/ --------------------
   "/ Far enabling ripgrep
-  "/ ====================
+  "/ --------------------
     "/ see: https://github.com/brooth/far.vim/issues/69
     command! CfarSrcRipgrep let g:far#source = 'rg' | echo 'g:far#source='.g:far#source
     command! CfarSrcVimgrep let g:far#source = 'vimgrep' | echo 'g:far#source='.g:far#source
     command! CfarSrcCurrent echom g:far#source
 
-  "/ =====================
+  "/ ---------------------
   "/ Far working directory
-  "/ =====================
+  "/ ---------------------
     function! FarPwd()
       echom 'g:far#cwd: '.g:far#cwd
     endfunction "/ FarPwd()
