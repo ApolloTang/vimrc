@@ -105,6 +105,8 @@
 
         " Plug 'https://github.com/Quramy/tsuquyomi' // duplicate function of ycm
 
+        Plug 'https://github.com/moll/vim-bbye'
+
     call plug#end()
 
 
