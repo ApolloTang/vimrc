@@ -569,6 +569,13 @@ autocmd! FileType mkd setlocal syn=off
 " au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 augroup END
 
+function! FtHtml()
+  set filetype=html
+  set filetype?
+endfunction "/ FtHtml()
+command! CftHtml call FtHtml()
+
+
 " Code folding {----------------------------------------------------------
     set fdm=indent
 
