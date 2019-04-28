@@ -207,6 +207,9 @@
   set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.7
 " }
 
+"/ Essential Customization { ---------------------------------------------
+  noremap <c-q> :q<CR>
+"/}
 
 " Setting to sort { ------------------------------------------------------
     let mapleader=","
