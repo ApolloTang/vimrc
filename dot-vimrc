@@ -1246,7 +1246,7 @@ nmap <C-Down> ]e`[            " Bubling down one line
   "/ Ref:
   "/  stackoverflow.com/questions/11978291/how-do-i-use-wildignore-in-vim
   "/  stackoverflow.com/questions/579871/can-i-make-vim-respect-my-gitignore-files/579886#579886
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/dist/*
   " Windows ('noshellslash')
 
 "/ }}}
