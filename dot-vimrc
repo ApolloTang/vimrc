@@ -200,41 +200,13 @@
 " }
 
 
-" Plateform pattern {
-    if !WINDOWS()
-        "echom 'Runtime envrionment: Not windows'
-    endif
-    if WINDOWS()
-        "echom 'Runtime envrionment: Windows'
-    endif
-    if OSX()
-        "echom 'Runtime envrionment: OSX'
-    endif
-    if LINUX()
-        "echom 'Runtime envrionment: Linux'
-    endif
-" }
-
-
-" Plateform pattern template {
-    " if !WINDOWS()
-    " endif
-    " if WINDOWS()
-    " endif
-    " if OSX()
-    " endif
-    " if LINUX()
-    " endif
-" }
-
-
-
 " Python Setting {
   set pythondll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
   set pythonhome=/usr/local/Frameworks/Python.framework/Versions/3.7
   set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
   set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.7
 " }
+
 
 " Setting to sort { ------------------------------------------------------
     let mapleader=","
