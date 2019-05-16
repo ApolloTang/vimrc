@@ -212,7 +212,7 @@
 "/}
 
 " Setting to sort { ------------------------------------------------------
-    let mapleader=","
+    let mapleader=" "
     let maplocalleader="\\"                 "\ leader that targat specific file type
 
     " inoremap <leader><leader> <Esc>hhhh     "\ back to normal mode; the 4h (hhhh) fix cusor jump around
