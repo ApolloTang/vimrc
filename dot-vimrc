@@ -661,12 +661,14 @@ command! W :wa
     command! -nargs=* Term !ttab -d `pwd`
 "/ }
 
-" ## Wrapping behaviour { ------------------------------------------------
-    set nowrap nolinebreak list
-    "/ No scrolling for now, need a solution, because H and L is need from
-    "/ frequently
+"/ ## scrolling horizontal { ------------------------------------------------
+    "/ No scrolling for now, need a solution
         " nmap <s-l> zl  "scroll left
         " nmap <s-h> zh  "scroll right
+"/ }
+
+" ## Wrapping behaviour { ------------------------------------------------
+    set nowrap nolinebreak list
     command! -nargs=* Wrapword set wrap linebreak nolist
     command! -nargs=* Wrap set wrap list
     command! -nargs=* Wrapoff set nowrap nolinebreak list
