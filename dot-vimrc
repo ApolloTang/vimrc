@@ -107,6 +107,8 @@
 
         Plug 'https://github.com/moll/vim-bbye'
 
+        Plug 'https://github.com/flowtype/vim-flow'
+
     call plug#end()
 
 
