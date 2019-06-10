@@ -373,7 +373,6 @@
     set backspace=indent,eol,start          " Intuitive backspacing.
     "set whichwrap+=<,>,h,l                 " what is this?
 
-    set hidden                              " Handle multiple buffers better.
     set history=1000                        " Rememember more commands and search history
     set wildmenu                            " Enhanced command line completion.
     set wildmode=list:longest               " Complete files like a shell.
@@ -403,7 +402,7 @@
     set nocursorline                        " do not show cursor line
     set cmdheight=2
     set switchbuf=useopen
-    set numberwidth=5
+    "set numberwidth=5
     set showtabline=2
     "set winwidth=150                       " do not set width, if set window will size it self
     set winheight=6
@@ -1021,15 +1020,18 @@ nmap <C-Down> ]e`[            " Bubling down one line
     " Indent if we're at the beginning of a line. Else, do completion.
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-    else
-    return "\<c-p>"
-    endif
+      let col = col('.') - 1
+      if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+        else
+        return "\<c-p>"
+      endif
     endfunction
-    inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-    inoremap <s-tab> <c-n>
+    "/ ***
+    "/ *** the following is conflicting with asyncomplete so commented out
+    "/ ***
+      " inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+      " inoremap <s-tab> <c-n>
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -1283,11 +1285,14 @@ nmap <C-Down> ]e`[            " Bubling down one line
 " }
 
 
-" "/ Valloric/YouCompleteMe {
-"   let g:ycm_error_symbol = '>'
-"   let g:ycm_warning_symbol = '•'
-"   nnoremap <leader>vvdd :YcmCompleter GoTo<CR>
-" "}
+  "/ ***
+  "/ *** YouCompleteMe
+  "/ ***
+    " "/ Valloric/YouCompleteMe {
+    "   let g:ycm_error_symbol = '>'
+    "   let g:ycm_warning_symbol = '•'
+    "   nnoremap <leader>vvdd :YcmCompleter GoTo<CR>
+    " "}
 
 
 
