@@ -195,7 +195,7 @@ syntax enable  "/ Turn on syntax highlighting.
       " let g:lsp_log_verbose = 1
       " let g:lsp_log_file = 'vim-lsp.log'
 
-      "/ typescript
+      "/ Typescript
       "/ ------------
       "/ ::: configuring vim-lsp for typescript
       "/   from:
@@ -203,7 +203,6 @@ syntax enable  "/ Turn on syntax highlighting.
       "/   also see:
       "/     https://github.com/prabirshrestha/vim-lsp/wiki/Servers-TypeScript
       if executable('typescript-language-server')
-        "echom 'typescript-language-server is executable'
         au User lsp_setup call lsp#register_server({
           \ 'name': 'typescript support using typescript-language-server',
           \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
@@ -219,7 +218,6 @@ syntax enable  "/ Turn on syntax highlighting.
       "/ flow
       "/ ------------
       if executable('flow')
-        "echom 'flow is executable'
         au User lsp_setup call lsp#register_server({
           \ 'name': 'flow',
           \ 'cmd': {server_info->['flow', 'lsp']},
@@ -228,15 +226,6 @@ syntax enable  "/ Turn on syntax highlighting.
           \ })
       endif
 
-      if executable('flow-language-server')
-        "echom 'flow-language-server is executable'
-        au User lsp_setup call lsp#register_server({
-          \ 'name': 'flow-language-server',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
-          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-          \ 'whitelist': ['javascript', 'javascript.jsx'],
-          \ })
-      endif
 
     "/ Diagnostics
     "/ ------------
