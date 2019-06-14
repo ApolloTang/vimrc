@@ -108,11 +108,9 @@
         "/ ***
         "/ *** Shougo/denite.nvim
         "/ ***
-        "/ Next two plugin are dependency of Shougo/denite.nvim
-            Plug 'https://github.com/roxma/nvim-yarp'
-            Plug 'https://github.com/roxma/vim-hug-neovim-rpc'
-
-            Plug 'https://github.com/Shougo/denite.nvim'
+        Plug 'https://github.com/roxma/nvim-yarp'          "/required for denite.nvim
+        Plug 'https://github.com/roxma/vim-hug-neovim-rpc' "/required for denite.nvim
+        Plug 'https://github.com/Shougo/denite.nvim'
 
         Plug 'https://github.com/posva/vim-vue'
 
