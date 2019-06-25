@@ -126,9 +126,9 @@
         Plug 'https://github.com/flowtype/vim-flow'
 
         "/ Theme
+        Plug 'https://github.com/morhetz/gruvbox'
         Plug 'https://github.com/ApolloTang/apollotang-light'
         Plug 'https://github.com/ApolloTang/vim-color-apollotang'
-        Plug 'https://github.com/morhetz/gruvbox'
 
         Plug 'https://github.com/editorconfig/editorconfig-vim'
 
@@ -213,16 +213,33 @@ syntax enable  "/ Turn on syntax highlighting.
         echohl NONE
       endif
 
-      "/ flow
-      "/ ------------
-      if executable('flow')
-        au User lsp_setup call lsp#register_server({
-          \ 'name': 'flow',
-          \ 'cmd': {server_info->['flow', 'lsp']},
-          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-          \ 'whitelist': ['javascript', 'javascript.jsx'],
-          \ })
-      endif
+  "/ Flow
+  "/ ------------
+  if executable('flow')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'flow',
+      \ 'cmd': {server_info->['flow', 'lsp']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx'],
+      \ })
+        endif
+
+
+  "/ Javascript
+  "/ ------------
+    if executable('typescript-language-server')
+      echom 'typescript-language-server is executable for ft of javascript and javascript.jsx'
+      au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript support using typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'jsconfig.json'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx'],
+        \ })
+    else
+      echohl ErrorMsg
+      echom 'Sorry, `typescript-language-server` is not installed. See `:help vim-lsp-javascript` for more details on setup.'
+      echohl NONE
+  endif
 
 
     "/ Diagnostics
