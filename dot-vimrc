@@ -150,7 +150,7 @@
 syntax enable  "/ Turn on syntax highlighting.
 
 "/ **
-"/ ** Enabling colorscheme
+"/ ** Enabling colorscheme start
 "/ **
 "/ Colors and fonts {
 
@@ -187,8 +187,10 @@ syntax enable  "/ Turn on syntax highlighting.
       set guifont=Consolas:h9:cANSI
     endif
   endif
+"/} Enabling colorscheme end
 
-" }
+
+    "/ **
     "/ ** vim-lsp configuration
     "/ **
     "/ vim-lsp {
