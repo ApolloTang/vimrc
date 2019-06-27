@@ -1003,9 +1003,11 @@ nmap <C-Down> ]e`[            " Bubling down one line
     nnoremap <c-g> "0P
     vnoremap <c-g> "0P
 
-    " paste clipboard *after* cursor
-    nnoremap <leader>f "*p
-    vnoremap <leader>f "*p
+    "/ paste clipboard *after* cursor
+    "nnoremap <leader>f "*p
+    "vnoremap <leader>f "*p
+    "/     leader-f is conflicting with [coc] formate select region
+    "/     so it is commented out.
 
     " paste previous yank *after* cursor
     nnoremap <leader>g "0p
