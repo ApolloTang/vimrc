@@ -194,6 +194,12 @@ syntax enable  "/ Turn on syntax highlighting.
   "/ always show signcolumns
   set signcolumn=yes
 
+  "/ Coc Style
+  highlight CocErrorHighlight       cterm=underline gui=undercurl guisp=red    ctermfg=red
+  highlight CocWarningHighlight     cterm=underline gui=undercurl guisp=orange ctermfg=3
+  highlight CocInfoHighlight        cterm=underline gui=undercurl guisp=cyan1  ctermfg=cyan
+  highlight CocHintHighlight        cterm=underline gui=undercurl guisp=green  ctermfg=green
+
   " Use tab for trigger completion with characters ahead and navigate.
   " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
   inoremap <silent><expr> <TAB>
