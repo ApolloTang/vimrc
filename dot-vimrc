@@ -998,6 +998,10 @@ nmap <C-Down> ]e`[            " Bubling down one line
         endif
     " }
 
+    " https://stackoverflow.com/a/11020240/3136861
+    " set clipboard+=autoselect
+    " set guioptions+=a
+
     " yank to clipboard
     map <c-b> "*y
 
