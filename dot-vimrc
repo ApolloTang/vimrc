@@ -846,10 +846,10 @@ command! W :wa
     nnoremap <c-l> <c-w>l
 
     " ## Move around splits
-    nnoremap <leader>j <c-w>j
-    nnoremap <leader>k <c-w>k
-    nnoremap <leader>h <c-w>h
-    nnoremap <leader>l <c-w>l
+    " nnoremap <leader>j <c-w>j
+    " nnoremap <leader>k <c-w>k
+    " nnoremap <leader>h <c-w>h
+    " nnoremap <leader>l <c-w>l
 
     "\ ----------------
     "\  Jump to window
