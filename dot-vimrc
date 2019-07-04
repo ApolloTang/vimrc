@@ -907,6 +907,15 @@ command! W :wa
   endfunction
 "}
 
+
+    """"""""""""""""""""""""""""""""""""""""""
+    " OPEN FILES IN DIRECTORY OF CURRENT FILE
+    """"""""""""""""""""""""""""""""""""""""""
+    cnoremap %% <C-R>=expand('%:h').'/'<cr>
+    map <leader>e :edit %%
+    map <leader>d :view %%
+
+
 " window { ---------------------------------------------------------------
     " ##  Window resizing
     nnoremap <leader>ww 30<c-w>>
@@ -1180,12 +1189,7 @@ nmap <C-Down> ]e`[            " Bubling down one line
       " inoremap <tab> <c-r>=InsertTabWrapper()<cr>
       " inoremap <s-tab> <c-n>
 
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " OPEN FILES IN DIRECTORY OF CURRENT FILE
-    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    cnoremap %% <C-R>=expand('%:h').'/'<cr>
-    map <leader>e :edit %%
-    map <leader>d :view %%
+
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " RENAME CURRENT FILE
