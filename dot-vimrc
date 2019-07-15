@@ -245,7 +245,10 @@ syntax enable  "/ Turn on syntax highlighting.
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
   " Remap for rename current word
-  nmap <leader>rn <Plug>(coc-rename)
+  nmap <space>crn <Plug>(coc-rename)
+
+  " Open refactor window for refactor of current symbol
+  nmap <space>crf <Plug>(coc-refactor)
 
   " Remap for format selected region
   xmap <leader>f  <Plug>(coc-format-selected)
