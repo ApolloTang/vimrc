@@ -1055,7 +1055,6 @@ imap [ []<left>
 imap ( ()<left>
 imap { {}<left>
 
-
 " Open line (insert mode)
 inoremap <leader>O <esc>O
 inoremap <leader>o <esc>o
@@ -1063,9 +1062,11 @@ inoremap <leader>o <esc>o
 nnoremap <leader>O O<esc>
 nnoremap <leader>o o<esc>
 
+"/ emacs like begin and end of line
+inoremap <c-a> <esc>^i
+inoremap <c-e> <esc>A
 
-
-" insert mode movements
+"/ insert mode movements
 inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
