@@ -100,6 +100,10 @@
         "/ Typescript syntax
         Plug 'https://github.com/leafgarland/typescript-vim'
 
+        "/ tsx syntax
+        "/ https://github.com/neoclide/coc-tsserver/issues/8#issuecomment-450559391
+        Plug 'https://github.com/ianks/vim-tsx'
+
         "/ Flow syntax
         Plug 'https://github.com/flowtype/vim-flow'
 
