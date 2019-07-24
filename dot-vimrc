@@ -1088,6 +1088,14 @@ nmap <C-Down> ]e`[            " Bubling down one line
 "nnoremap <C-Up> V:move '<-2<CR><Esc>0        " Bubble up one lines (after select with visual mode)
 "nnoremap <C-Down> V:move '>+1<CR><Esc>0        " Bubble down one lines (after select with visual mode)
 
+"\ Replay macro in register m
+nnoremap <space>mm @m
+"\ How to record and play macro
+"\  1. [q][m]
+"\  2. edit hoever you want
+"\  3. [q]
+"\  4. <space>mm
+
 
 " cut and paste { --------------------------------------------------------
     " Plateform specific {
