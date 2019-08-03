@@ -180,6 +180,10 @@ syntax enable  "/ Turn on syntax highlighting.
       " set guifont=Source\ Code\ Pro\ ExtraLight:h12
       " colorscheme apollotang
       " set guifont=Consolas:h12
+      "
+      "/ Popup menu highlight:
+      "/ https://vi.stackexchange.com/questions/12664/is-there-any-way-to-change-the-popup-menu-color
+      highlight Pmenu ctermbg=gray guibg=gold
     elseif has("gui_win32")
       set guifont=Consolas:h9:cANSI
     endif
