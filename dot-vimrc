@@ -183,7 +183,7 @@ syntax enable  "/ Turn on syntax highlighting.
       "
       "/ Popup menu highlight:
       "/ https://vi.stackexchange.com/questions/12664/is-there-any-way-to-change-the-popup-menu-color
-      highlight Pmenu ctermbg=gray guibg=gold
+      hi Pmenu ctermbg=gray guibg=#dfe7fb
     elseif has("gui_win32")
       set guifont=Consolas:h9:cANSI
     endif
@@ -203,10 +203,16 @@ syntax enable  "/ Turn on syntax highlighting.
   set signcolumn=yes
 
   "/ Coc Style
-  highlight CocErrorHighlight       cterm=underline gui=undercurl guisp=red    ctermfg=red
-  highlight CocWarningHighlight     cterm=underline gui=undercurl guisp=orange ctermfg=3
-  highlight CocInfoHighlight        cterm=underline gui=undercurl guisp=cyan1  ctermfg=cyan
-  highlight CocHintHighlight        cterm=underline gui=undercurl guisp=green  ctermfg=green
+  hi CocErrorHighlight       cterm=underline gui=undercurl guisp=red     ctermfg=red
+  hi CocWarningHighlight     cterm=underline gui=undercurl guisp=orange  ctermfg=3
+  hi CocInfoHighlight        cterm=underline gui=undercurl guisp=#bbbff5 ctermfg=blue
+  hi CocHintHighlight        cterm=underline gui=undercurl guisp=green   ctermfg=green
+
+  hi CocErrorsign            ctermfg=red   guifg=red
+  hi CocWarningsign          ctermfg=3     guifg=orange
+  hi CocInfoSign             ctermfg=blue  guifg=#2300b1
+  hi CocHintSign             ctermfg=green guifg=green
+  "/ More highlight set in plugin/coc.vim
 
   " Use tab for trigger completion with characters ahead and navigate.
   " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
