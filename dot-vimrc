@@ -102,7 +102,9 @@
 
         "/ tsx syntax
         "/ https://github.com/neoclide/coc-tsserver/issues/8#issuecomment-450559391
-        Plug 'https://github.com/ianks/vim-tsx'
+        " Plug 'https://github.com/ianks/vim-tsx'
+        "/ https://github.com/ianks/vim-tsx has not been maintain for serveral years I'll try peitalin/vim-jsx-typescript
+        Plug 'peitalin/vim-jsx-typescript'
 
         "/ Flow syntax
         Plug 'https://github.com/flowtype/vim-flow'
@@ -832,6 +834,10 @@ autocmd FileType coffee set ai sw=2 sts=2 et
 "/ to use in conjunction with Syntax folding for Javascript, but is crap so
 "/  comment out.
 "autocmd BufNewFile,BufRead *.js set filetype=javascript
+
+"/ Syntax for json:
+"/ https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:&gt;
