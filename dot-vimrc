@@ -102,9 +102,11 @@
 
         "/ tsx syntax
         "/ https://github.com/neoclide/coc-tsserver/issues/8#issuecomment-450559391
-        " Plug 'https://github.com/ianks/vim-tsx'
+        Plug 'https://github.com/ianks/vim-tsx'
         "/ https://github.com/ianks/vim-tsx has not been maintain for serveral years I'll try peitalin/vim-jsx-typescript
-        Plug 'peitalin/vim-jsx-typescript'
+        " Plug 'peitalin/vim-jsx-typescript'
+          "/ will not use vim-jsx-typescript bc is it treating jsx as typscript
+          "/ which result in tsc checking jsx so revert to vim-tsx
 
         "/ Flow syntax
         Plug 'https://github.com/flowtype/vim-flow'
@@ -130,8 +132,12 @@
                 "/ Apollo Note: I executed as instructed above but results in error, so I removed ~/.vim/after/indent
 
         "/ neoclide/vim-jsx-imporve is the replacement for mxw/vim-jsx
-        Plug 'neoclide/vim-jsx-improve'
+        " Plug 'neoclide/vim-jsx-improve'
 
+        "/ 2019 Aug: there are some update on maxmellon/vim-jsx-pretty so give
+        "/           it a try
+        Plug 'pangloss/vim-javascript'
+        Plug 'maxmellon/vim-jsx-pretty'
 
         "/ Theme
         Plug 'https://github.com/morhetz/gruvbox'
