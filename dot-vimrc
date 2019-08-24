@@ -949,7 +949,7 @@ command! W :wa
     " OPEN FILES IN DIRECTORY OF CURRENT FILE
     """"""""""""""""""""""""""""""""""""""""""
     cnoremap %% <C-R>=expand('%:h').'/'<cr>
-    map <leader>e :edit %%
+    " map <leader>e :edit %%  "/ similar to :view but edit-able, so commented out
     map <leader>d :view %%
 
 
@@ -1099,6 +1099,8 @@ nnoremap <leader>o o<esc>
 "/ emacs like begin and end of line
 inoremap <c-a> <esc>^i
 inoremap <c-e> <esc>A
+noremap <space>a ^
+noremap <space>e $
 
 "/ insert mode movements
 inoremap <c-j> <down>
