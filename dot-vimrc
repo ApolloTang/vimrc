@@ -1121,11 +1121,14 @@ cnoremap <c-l> <right>
 map gm :call cursor(0, virtcol('$')/2)<CR>
 
 
-" ##  Line Bubling (map to unimpaired plugin)
-nmap <C-Up>   [e`[            " Bubling up one line
-nmap <C-Down> ]e`[            " Bubling down one line
-"nnoremap <C-Up> V:move '<-2<CR><Esc>0        " Bubble up one lines (after select with visual mode)
-"nnoremap <C-Down> V:move '>+1<CR><Esc>0        " Bubble down one lines (after select with visual mode)
+"/ ##  line bubling (map to unimpaired plugin)
+"/ not sure what the '`[' after '[e' but it behave the same as without,
+"/ commented out for now until i know what it is
+  " nmap <space><up>   [e`[            " bubling up one line
+  " nmap <space><down> ]e`[            " bubling down one line
+"/ next two bubling does not work
+  " nnoremap <c-up> v:move '<-2<cr><esc>0        " bubble up one lines (after select with visual mode)
+  " nnoremap <c-down> v:move '>+1<cr><esc>0      " bubble down one lines (after select with visual mode)
 
 "\ Replay macro in register m
 nnoremap <space>mm @m
