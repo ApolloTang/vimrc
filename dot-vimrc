@@ -160,6 +160,7 @@
 
         Plug 'https://github.com/tpope/vim-fugitive'
         Plug 'https://github.com/tpope/vim-unimpaired'
+        Plug 'https://github.com/airblade/vim-gitgutter'
     call plug#end()
 
 
@@ -347,7 +348,6 @@ syntax enable  "/ Turn on syntax highlighting.
   nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
   " Resume latest coc list
   nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
 "/ } COC configuration end
 
 
@@ -356,14 +356,21 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ ** vim-flow configuration start
 "/ **
 "/  {
-
   "/ This is to fix this bug: https://github.com/flowtype/vim-flow/issues/38#issuecomment-266044794
     let g:flow#autoclose = 1
     "/ If g:flow#autoclose is set to 1, the quickfix window will not be opened
     "/ when there are no errors, and will be automatically closed when previous errors are cleared.
-
 "/ } vim-flow configuration end
 
+
+"/ **
+"/ ** airblade/vim-gitgutter configuration start
+"/ **
+"/  {
+  "/ change ]c to ]h because it is conflict with vim-coc
+  nmap ]h <Plug>GitGutterNextHunk
+  nmap [h <Plug>GitGutterPrevHunk
+"/ } airblade/vim-gitgutter configuration end
 
 
     "/ junegunn/vim-easy-align {
@@ -387,7 +394,6 @@ syntax enable  "/ Turn on syntax highlighting.
     "/ ** Shougo/denite.nvim configuration
     "/ **
     "/ Shougo/denite.nvim {
-
       "/ Ref: https://github.com/ctaylo21/jarvis/blob/master/config/nvim/init.vim
       "/
       "/ === Denite setup ==="
@@ -479,7 +485,6 @@ syntax enable  "/ Turn on syntax highlighting.
           nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
           nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
         endfunction
-
     "/ } Shougo/denite.nvim END
 
 
