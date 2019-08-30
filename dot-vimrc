@@ -710,6 +710,21 @@ syntax enable  "/ Turn on syntax highlighting.
     map <F6> :echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
     "/ The above tell you "what kind syntax ID that it is thing under the given position"
     "/ http://linuxyz.blogspot.ca/search/label/VIM
+
+    function! GetSyntaxId()
+      "/ Tell you "what kind syntax ID that it is thing under the given position"
+      "/ http://linuxyz.blogspot.ca/search/label/VIM
+      echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")
+    endfunction
+    command! CsynId call GetSyntaxId()
+
+    function! GetSyntaxInfo()
+      "/ Tell you "what kind syntax ID that it is thing under the given position"
+      "/   this one is from github.com/tomtom
+      "/ https://github.com/tomtom/tcomment_vim/issues/186#issuecomment-458839299
+      echom &ft synIDattr(synID(line("."), col("."), 1), "name")
+    endfunction
+    command! CsynInfo call GetSyntaxInfo()
 " }
 
 " Indentation setting { --------------------------------------------------
