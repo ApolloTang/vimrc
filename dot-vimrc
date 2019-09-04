@@ -990,6 +990,15 @@ command! W :wa
     endfunction
     nnoremap <leader>fr :call RenameFile()<cr>
 
+    """"""""""""""""""""""""""""
+    " OPEN ITERM AT CURRENT PATH
+    """"""""""""""""""""""""""""
+    function! OpenItermAtPath_dir()
+      " Full dir path: eg. '/home/user/nvim' in '/home/user/nvim/init.vim'
+      let path = expand("%:p:h")
+      exec ':!open -a iterm ' . path
+    endfunction
+    command! CitermHere call OpenItermAtPath_dir()
 
 " window { ---------------------------------------------------------------
     " ##  Window resizing
