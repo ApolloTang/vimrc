@@ -161,6 +161,8 @@
         Plug 'https://github.com/tpope/vim-fugitive'
         Plug 'https://github.com/tpope/vim-unimpaired'
         Plug 'https://github.com/airblade/vim-gitgutter'
+
+        Plug 'https://github.com/honza/vim-snippets'
     call plug#end()
 
 
@@ -349,6 +351,52 @@ syntax enable  "/ Turn on syntax highlighting.
   " Resume latest coc list
   nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "/ } COC configuration end
+
+
+
+"/ **
+"/ ** coc-snippets configuration start
+"/ **
+"/  {
+
+  "/The flowing is similar to coc configuration so rename
+  inoremap <silent><expr> <F4>
+        \ pumvisible() ? coc#_select_confirm() :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+        \ <SID>coc_snippet_check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+
+  function! s:coc_snippet_check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  let g:coc_snippet_next = '<F4>'
+
+  "/------------------------------------------
+  "/ ** the following configuration still wip
+
+  " trigger snippet expand.
+  " imap <C-l> <Plug>(coc-snippets-expand)
+  imap <C-9> <Plug>(coc-snippets-expand)
+
+  " select text for visual placeholder of snippet.
+  " vmap <C-j> <Plug>(coc-snippets-select)
+  vmap <C-7> <Plug>(coc-snippets-select)
+
+  " jump to next placeholder, it's default of coc.nvim
+  " let g:coc_snippet_next = '<c-j>'
+  let g:coc_snippet_next = '<c-7>'
+
+  " jump to previous placeholder, it's default of coc.nvim
+  " let g:coc_snippet_prev = '<c-k>'
+  let g:coc_snippet_prev = '<c-8>'
+
+  " both expand and jump (make expand higher priority.)
+  " imap <C-j> <Plug>(coc-snippets-expand-jump)
+  imap <C-7> <Plug>(coc-snippets-expand-jump)
+
+"/ } vim-snippets configuration end
 
 
 
