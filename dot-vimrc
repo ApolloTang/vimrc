@@ -396,7 +396,7 @@ syntax enable  "/ Turn on syntax highlighting.
   " imap <C-j> <Plug>(coc-snippets-expand-jump)
   imap <C-7> <Plug>(coc-snippets-expand-jump)
 
-"/ } vim-snippets configuration end
+"/ } coc-snippets configuration end
 
 
 
