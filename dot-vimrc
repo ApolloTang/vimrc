@@ -1526,6 +1526,17 @@ nnoremap <space>mm @m
 "}
 
 
+"""""""""""""""""""""""""""""""""""""""
+" Launch NERDTree and set preview mode
+"""""""""""""""""""""""""""""""""""""""
+function! LaunchNERDTreeSetPreview()
+  let path = expand("%:p:h")
+  exec ':NERDTree'
+  exec ':CpreviewToggle'
+endfunction
+command! CnerdPreview call LaunchNERDTreeSetPreview()
+
+
 " Yank filename/dirname {-------------------------------------------------
     " copy result to the system clipboard and echo the result
     " the cb> prompt means the clipboard
