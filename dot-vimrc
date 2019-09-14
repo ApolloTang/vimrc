@@ -163,8 +163,8 @@
         Plug 'https://github.com/airblade/vim-gitgutter'
 
         Plug 'https://github.com/honza/vim-snippets'
-
         Plug 'https://github.com/mhinz/vim-startify'
+        Plug 'https://github.com/mhinz/vim-grepper'
     call plug#end()
 
 
@@ -411,6 +411,19 @@ syntax enable  "/ Turn on syntax highlighting.
     "/ If g:flow#autoclose is set to 1, the quickfix window will not be opened
     "/ when there are no errors, and will be automatically closed when previous errors are cleared.
 "/ } vim-flow configuration end
+
+
+"/ **
+"/ ** [plugconfig]
+"/ ** vim-greppper configuration start
+"/ **
+"/  {
+
+  "/ map normal and visual mode to  Grepper operator
+  nmap gs  <plug>(GrepperOperator)
+  xmap gs  <plug>(GrepperOperator)
+"/ } vim-grepper configuration end
+
 
 
 "/ **
