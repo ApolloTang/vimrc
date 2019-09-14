@@ -163,6 +163,8 @@
         Plug 'https://github.com/airblade/vim-gitgutter'
 
         Plug 'https://github.com/honza/vim-snippets'
+
+        Plug 'https://github.com/mhinz/vim-startify'
     call plug#end()
 
 
