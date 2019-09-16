@@ -698,6 +698,11 @@ syntax enable  "/ Turn on syntax highlighting.
 
 "/ Essential Customization { ---------------------------------------------
   noremap <c-q> :q<CR>
+
+  "/ Select next previous item in quickfix window
+  "/ https://stackoverflow.com/a/29287066/3136861
+  map <C-n> :cn<CR>
+  map <C-p> :cp<CR>
 "/}
 
 " Setting to sort { ------------------------------------------------------
