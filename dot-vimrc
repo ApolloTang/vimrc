@@ -441,6 +441,8 @@ syntax enable  "/ Turn on syntax highlighting.
   "/ map normal and visual mode to  Grepper operator
   nmap gs  <plug>(GrepperOperator)
   xmap gs  <plug>(GrepperOperator)
+
+  nmap <space>g :Grepper<cr>
 "/ ** ---------------------------------
 "/ ** [plugconfig vim-grepper END]
 
@@ -648,7 +650,7 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ **
 "/ ** [plugconfig vim-jsx-pretty]
-"/ ** MaxMEllon/vim-jsx-pretty {
+"/ ** MaxMEllon/vim-jsx-pretty
 "/ **
 "/ **
 "/ ** ---------------------------------
@@ -658,6 +660,31 @@ syntax enable  "/ Turn on syntax highlighting.
 
 
 
+"/ **
+"/ **
+"/ ** [plugconfig LeaderF]
+"/ ** Yggdroot/LeaderF
+"/ **
+"/ **
+"/ ** ---------------------------------
+
+  nmap <space>p :LeaderfFile<cr>
+  nmap <space>b :LeaderfBuffer<cr>
+
+  function! LeaderFCustomCommand_help()
+    :echom "<C-P> : preview the result"
+    :echom "<C-V> : paste from clipboard"
+    :echom "<C-J>, <C-K> : navigate the result list"
+    :echom "<C-X> : open in horizontal split window"
+    :echom "<C-]> : open in vertical split window"
+    :echom "<F5>  : refresh the cache"
+    :echom "<C-S> : select multiple files"
+    :echom "<C-L> : clear all selections"
+    :echom "<Tab> : switch to normal mode"
+  endfunction
+  command! GGlhelp call LeaderFCustomCommand_help()
+"/ ** ---------------------------------
+"/ ** [plugconfig LeaderF END]
 
 
 
