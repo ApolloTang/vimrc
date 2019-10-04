@@ -272,22 +272,32 @@ syntax enable  "/ Turn on syntax highlighting.
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
-  " Remap for rename current word
+  "/ Remap for rename current word
   nmap <space>crn <Plug>(coc-rename)
+  function! CocCustomCommand_renameCurrentWord()
+    :execute "normal \<Plug>(coc-rename)"
+  endfunction
+  command! GGCrenameCurrentWord call CocCustomCommand_renameCurrentWord()
 
-  " Open refactor window for refactor of current symbol
+  "/ Open refactor window for refactor of current symbol
   nmap <space>crf <Plug>(coc-refactor)
+    "/ The following does not work it needs to be wrapped into a function
+    "/   command! GGCrefactor :execute "normal \<Plug>(coc-rename)"
+  function! CocCustomCommand_refactor()
+    :execute "normal \<Plug>(coc-refactor)"
+  endfunction
+  command! GGCrefactor call CocCustomCommand_refactor()
 
   " Remap for format selected region
   xmap <leader>f  <Plug>(coc-format-selected)
   nmap <leader>f  <Plug>(coc-format-selected)
 
   augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   augroup end
 
   " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -304,14 +314,14 @@ syntax enable  "/ Turn on syntax highlighting.
   xmap <silent> <TAB> <Plug>(coc-range-select)
   xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
-  " Use `:Format` to format current buffer
-  command! -nargs=0 Format :call CocAction('format')
+  " Use `:GGCFormatCurrentBuffer` to format current buffer
+  command! -nargs=0 GGCFormatCurrentBuffer :call CocAction('format')
 
-  " Use `:Fold` to fold current buffer
-  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+  " Use `:GGCfoldCurrentBuffer` to fold current buffer
+  command! -nargs=? GGCfoldCurrentBuffer :call CocAction('fold', <f-args>)
 
-  " use `:OR` for organize import of current buffer
-  command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+  " use `:GGCorganizeImport` for organize import of current buffer
+  command! -nargs=0 GGCorganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
 
   " Add diagnostic info for https://github.com/itchyny/lightline.vim
   let g:lightline = {
@@ -342,6 +352,19 @@ syntax enable  "/ Turn on syntax highlighting.
   nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
   " Resume latest coc list
   nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+  function! CocCustomCommand_help()
+    :echom "nmap <silent> gd <Plug>(coc-definition)"
+    :echom "nmap <silent> gy <Plug>(coc-type-definition)"
+    :echom "nmap <silent> gi <Plug>(coc-implementation)"
+    :echom "nmap <silent> gr <Plug>(coc-references)"
+    :echom "Format selected              x: xmap <leader>f  <Plug>(coc-format-selected)"
+    :echom "Show all diagnostics          : nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>"
+    :echom "Find symbol in this document  : nnoremap <silent> <space>o  :<C-u>CocList outline<cr>"
+    :echom "Search workspace symbols      : nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>"
+  endfunction
+  command! GGChelp call CocCustomCommand_help()
 "/ ** ---------------------------------
 "/ ** [plugconfig coc END]
 
