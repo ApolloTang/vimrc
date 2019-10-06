@@ -712,7 +712,6 @@ let g:tmuxcomplete#asyncomplete_source_options = {
             \     'sort_candidates': 0,
             \     'scrollback':      0,
             \     'truncate':        0
-            \     }
             \ }
 "/ ** ---------------------------------
 "/ ** [plugconfig tmux-complete END]
