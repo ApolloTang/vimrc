@@ -152,6 +152,8 @@
         Plug 'https://github.com/honza/vim-snippets'
         Plug 'https://github.com/mhinz/vim-startify'
         Plug 'https://github.com/mhinz/vim-grepper'
+
+        Plug 'hecal3/vim-leader-guide'
     call plug#end()
 
 
