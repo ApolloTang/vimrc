@@ -95,6 +95,7 @@
         "/ ***
         Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+        Plug 'Yggdroot/indentLine'
 
         Plug 'https://github.com/posva/vim-vue'
 
