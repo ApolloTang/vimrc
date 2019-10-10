@@ -450,7 +450,7 @@ syntax enable  "/ Turn on syntax highlighting.
   nmap gs  <plug>(GrepperOperator)
   xmap gs  <plug>(GrepperOperator)
 
-  nmap <space>g :Grepper<cr>
+  nmap <space>g :Grepper -tool rg<cr>
 "/ ** ---------------------------------
 "/ ** [plugconfig vim-grepper END]
 
