@@ -162,6 +162,8 @@
         Plug 'prabirshrestha/async.vim'         "/ required by tmux-complete
         Plug 'prabirshrestha/asyncomplete.vim'  "/ required by tmux-complete
         Plug 'wellle/tmux-complete.vim'
+
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
     call plug#end()
 
 
