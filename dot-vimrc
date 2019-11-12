@@ -95,7 +95,9 @@
         "/ ***
         Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
-        Plug 'Yggdroot/indentLine'
+        " Plug 'Yggdroot/indentLine'
+        "/ Yggdroot/indentLine mess up json and markdown by concealing characater
+        "/ https://vi.stackexchange.com/questions/12520/markdown-in-neovim-which-plugin-sets-conceallevel-2/12521
 
         Plug 'https://github.com/posva/vim-vue'
 
