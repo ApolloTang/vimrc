@@ -722,6 +722,34 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ ** ---------------------------------
 "/ ** [plugconfig tmux-complete END]
 
+
+
+"/ **
+"/ **
+"/ ** [coc-plugin coc-prettier]
+"/ **
+"/ **
+"/ ** ---------------------------------
+  "/
+  "/ use :Prettier to format current buffer.
+  command! -nargs=0 GGFF :CocCommand prettier.formatFile
+  "/ run pretty and save
+  "/
+  function! RunPrettier()
+    :CocCommand prettier.formatFile
+    :w
+    echo 'Run prettier and save'
+  endfunction
+  command! GGFs call RunPrettier()
+  "/
+  "/ <leader>f for range format.
+  vmap <leader>f  <Plug>(coc-format-selected)
+  nmap <leader>f  <Plug>(coc-format-selected)
+"/ ** ---------------------------------
+"/ ** [coc-plugin coc-prettier END]
+
+
+
 " Environment {
     " Identify platform {
         silent function! OSX()
