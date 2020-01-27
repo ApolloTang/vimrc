@@ -83,4 +83,12 @@
   iabbrev -_- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
+============
+  Markdown
+============
+
+  :MarkdownPreview
+  :MarkdownPreviewStop
+
+
 
