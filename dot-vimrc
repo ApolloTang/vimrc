@@ -1166,7 +1166,7 @@ command! CftHtml call FtHtml()
 
 
 " Code folding {----------------------------------------------------------
-    set fdm=indent
+    set fdm=indent          "/ foldmethod
 
     " highlight Folded guibg=black        " color for codefolding line
     " highlight Folded guibg=gray14       " color for codefolding line
