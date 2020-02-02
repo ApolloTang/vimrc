@@ -92,3 +92,10 @@
 
 
 
+===========
+  helper
+===========
+
+  :GGcddt    : cd to desktop  (todo, save previous dir some where)
+
+

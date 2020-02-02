@@ -1254,6 +1254,14 @@ command! W :wa
     endfunction
     command! CitermHere call OpenItermAtPath_dir()
 
+    """"""""""""""""""""""""""""
+    " cd to desktop
+    """"""""""""""""""""""""""""
+    function! Cd_to_desktop()
+      exec ':cd ~/Desktop'
+    endfunction
+    command! GGcddt call Cd_to_desktop()
+
 " window { ---------------------------------------------------------------
     " ##  Window resizing
     nnoremap <leader>ww 30<c-w>>
