@@ -1,6 +1,6 @@
 
 "/ **
-"/ **  first thing first
+"/ **  first thing first [start]
 "/ **
 "/ {
   set nocompatible
@@ -8,7 +8,19 @@
                       "/ [COC] if hidden is not set, TextEdit might fail.
 "}
 
-    "/ The following are use for debugging in a sandbox
+"/ other important setting
+" set shell=sh
+"/
+"/
+"/ **
+"/ **  first thing first [End]
+"/ **
+
+
+    "/ ------------------------------------------------
+    "/ Sand box debugging [start]
+    "/ Uncomment the following to be user in debugging
+    "/ inside a sandbox
     "/ ------------------------------------------------
     " let DIR = getcwd()
     " echom DIR
@@ -20,6 +32,8 @@
     " endif
     "
     " call plug#begin(DIR.'/dot-vim/plugged')
+    "/ Sand box debugging [end]
+
     call plug#begin('~/.vim/plugged')
         "/ Make sure you use single quotes
 
