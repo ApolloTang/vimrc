@@ -40,6 +40,8 @@
         Plug 'junegunn/vim-easy-align'
 
         Plug 'scrooloose/nerdtree'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
+
         Plug 'tpope/vim-surround'
 
         Plug 'tomtom/tcomment_vim'
@@ -764,6 +766,32 @@ syntax enable  "/ Turn on syntax highlighting.
 
 
 
+"/ **
+"/ **
+"/ ** [Xuyuanp/nerdtree-git-plugin][start]
+"/ **
+"/ **
+"/ ** ---------------------------------
+  let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
+  "/ How to show ignored status (set to 1)?
+  "/ but a heavy feature may cost much more time, so set to 0 (off) for now
+  let g:NERDTreeShowIgnoredStatus = 0
+"/ ** ---------------------------------
+"/ ** [Xuyuanp/nerdtree-git-plugin][END]
+
+
+
 " Environment {
     " Identify platform {
         silent function! OSX()
@@ -953,7 +981,6 @@ syntax enable  "/ Turn on syntax highlighting.
 
     "/ rainbow:  https://github.com/luochen1990/rainbow
     "let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
-
 " }
 
 
