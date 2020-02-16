@@ -92,3 +92,13 @@
 
 
 
+=================================
+emacs like begin and end of line
+=================================
+  inoremap <c-a> <esc>^i
+  inoremap <c-e> <esc>A
+  noremap <space>a ^
+  noremap <space>e $
+
+
+
