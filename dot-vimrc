@@ -1,6 +1,6 @@
 
 "/ **
-"/ **  first thing first
+"/ **  first thing first [start]
 "/ **
 "/ {
   set nocompatible
@@ -8,7 +8,19 @@
                       "/ [COC] if hidden is not set, TextEdit might fail.
 "}
 
-    "/ The following are use for debugging in a sandbox
+"/ other important setting
+" set shell=sh
+"/
+"/
+"/ **
+"/ **  first thing first [End]
+"/ **
+
+
+    "/ ------------------------------------------------
+    "/ Sand box debugging [start]
+    "/ Uncomment the following to be user in debugging
+    "/ inside a sandbox
     "/ ------------------------------------------------
     " let DIR = getcwd()
     " echom DIR
@@ -20,12 +32,16 @@
     " endif
     "
     " call plug#begin(DIR.'/dot-vim/plugged')
+    "/ Sand box debugging [end]
+
     call plug#begin('~/.vim/plugged')
         "/ Make sure you use single quotes
 
         Plug 'junegunn/vim-easy-align'
 
         Plug 'scrooloose/nerdtree'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
+
         Plug 'tpope/vim-surround'
 
         Plug 'tomtom/tcomment_vim'
@@ -774,6 +790,32 @@ syntax enable  "/ Turn on syntax highlighting.
 
 
 
+"/ **
+"/ **
+"/ ** [Xuyuanp/nerdtree-git-plugin][start]
+"/ **
+"/ **
+"/ ** ---------------------------------
+  let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
+  "/ How to show ignored status (set to 1)?
+  "/ but a heavy feature may cost much more time, so set to 0 (off) for now
+  let g:NERDTreeShowIgnoredStatus = 0
+"/ ** ---------------------------------
+"/ ** [Xuyuanp/nerdtree-git-plugin][END]
+
+
+
 " Environment {
     " Identify platform {
         silent function! OSX()
@@ -963,7 +1005,6 @@ syntax enable  "/ Turn on syntax highlighting.
 
     "/ rainbow:  https://github.com/luochen1990/rainbow
     "let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
-
 " }
 
 
@@ -1176,7 +1217,7 @@ command! CftHtml call FtHtml()
 
 
 " Code folding {----------------------------------------------------------
-    set fdm=indent
+    set fdm=indent          "/ foldmethod
 
     " highlight Folded guibg=black        " color for codefolding line
     " highlight Folded guibg=gray14       " color for codefolding line
@@ -1277,6 +1318,14 @@ command! W :wa
       exec ':!open -a iterm ' . path
     endfunction
     command! CitermHere call OpenItermAtPath_dir()
+
+    """"""""""""""""""""""""""""
+    " cd to desktop
+    """"""""""""""""""""""""""""
+    function! Cd_to_desktop()
+      exec ':cd ~/Desktop'
+    endfunction
+    command! GGcddt call Cd_to_desktop()
 
 " window { ---------------------------------------------------------------
     " ##  Window resizing
