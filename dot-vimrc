@@ -3,6 +3,9 @@
 "/ **  first thing first [start]
 "/ **
 "/ {
+  set undodir=~/.vim/undodir "/ need to create this dir
+  set undofile
+
   set nocompatible
   set hidden          "/ Handle multiple buffers better.
                       "/ [COC] if hidden is not set, TextEdit might fail.
@@ -180,6 +183,8 @@
         Plug 'wellle/tmux-complete.vim'
 
         Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+        Plug 'mbbill/undotree'
     call plug#end()
 
 
