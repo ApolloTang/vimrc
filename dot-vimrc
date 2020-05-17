@@ -490,11 +490,19 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ **
 "/ ** ---------------------------------
+  "/ for browsing the input history
+  cnoremap <c-n> <down>
+  cnoremap <c-p> <up>
+
   "/ map normal and visual mode to  Grepper operator
   nmap gs  <plug>(GrepperOperator)
   xmap gs  <plug>(GrepperOperator)
 
   nmap <space>g :Grepper -tool rg<cr>
+
+  let g:grepper = {}
+  let g:grepper.tools = ['git', 'rg', 'grep']
+  let g:grepper.dir = 'repo,cwd'
 "/ ** ---------------------------------
 "/ ** [plugconfig vim-grepper END]
 
