@@ -120,7 +120,7 @@
         Plug 'https://github.com/Konfekt/FastFold'
         Plug 'https://github.com/tmhedberg/SimpylFold'
 
-        Plug 'https://github.com/jremmen/vim-ripgrep'
+        " Plug 'https://github.com/jremmen/vim-ripgrep'
 
 
         "/ ***
