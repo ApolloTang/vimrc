@@ -873,10 +873,26 @@ syntax enable  "/ Turn on syntax highlighting.
   set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.7
 
   "/ To check python version:
+  "
   "/   :python import sys; print(sys.version)
   "/   :python3 import sys; print(sys.version)
   "/
   "/ Ref: https://stackoverflow.com/a/10864154/3136861
+
+  "/ To compile with python/dyn from source and then install:
+  "/
+  "/   cd ~/_c
+  "/   git git@github.com:vim/vim.git
+  "/   cd vim
+  "/   make distclean    # <-- if you change compile option
+  "/   ./configure --with-features=huge --enable-pythoninterp --enable-python3interp
+  "/   sudo make install
+  "/
+  "/   A newly built vim will be installed under /usr/local
+  "/
+  "/   Ref:
+  "/   https://github.com/vim/vim/blob/master/READMEdir/README_mac.txt
+  "/   https://vi.stackexchange.com/a/24926/15493
 " }
 
 "/ Essential Customization { ---------------------------------------------
