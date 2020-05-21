@@ -871,6 +871,12 @@ syntax enable  "/ Turn on syntax highlighting.
   set pythonhome=/usr/local/Frameworks/Python.framework/Versions/3.7
   set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.7/Python
   set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.7
+
+  "/ To check python version:
+  "/   :python import sys; print(sys.version)
+  "/   :python3 import sys; print(sys.version)
+  "/
+  "/ Ref: https://stackoverflow.com/a/10864154/3136861
 " }
 
 "/ Essential Customization { ---------------------------------------------
