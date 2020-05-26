@@ -877,7 +877,17 @@ syntax enable  "/ Turn on syntax highlighting.
   "/   :python import sys; print(sys.version)
   "/   :python3 import sys; print(sys.version)
   "/
-  "/ Ref: https://stackoverflow.com/a/10864154/3136861
+  "/   Ref: https://stackoverflow.com/a/10864154/3136861
+  "/
+  "/   :echo has("python")
+  "/   :echo has("python3")
+  "/   :echo &pythondll (only vim, not neovim)
+  "/   :echo &pythonthreedll (only vim, not neovim)
+  "/   :py print(sys.version):"
+  "/   :py3 print(sys.version):"
+  "/
+  "/   Ref: https://github.com/Yggdroot/LeaderF/issues/402
+  "/
 
   "/ To compile with python/dyn from source and then install:
   "/
