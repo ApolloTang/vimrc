@@ -159,6 +159,10 @@
         Plug 'https://github.com/ApolloTang/apollotang-light'
         Plug 'https://github.com/ApolloTang/vim-color-apollotang'
 
+        Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+        "/ scheenshot for tempus themes:
+        "/   https://gitlab.com/protesilaos/tempus-themes#screenshots-sort-a-z
+
         Plug 'https://github.com/editorconfig/editorconfig-vim'
 
         Plug 'https://github.com/mattn/emmet-vim/'
@@ -177,7 +181,6 @@
 
         Plug 'hecal3/vim-leader-guide'
 
-
         Plug 'prabirshrestha/async.vim'         "/ required by tmux-complete
         Plug 'prabirshrestha/asyncomplete.vim'  "/ required by tmux-complete
         Plug 'wellle/tmux-complete.vim'
@@ -185,6 +188,7 @@
         Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
         Plug 'mbbill/undotree'
+
     call plug#end()
 
 
@@ -208,11 +212,13 @@ syntax enable  "/ Turn on syntax highlighting.
     if has("gui_gtk2")
       " colorscheme slate
       " colorscheme apollotang
-      colorscheme apollotang-light
+      " colorscheme apollotang-light
+      colorscheme tempus_day
       set guifont=Inconsolata\ 9
     elseif has("gui_macvim")
       " echo 'is macvim'
-      colorscheme apollotang-light
+      " colorscheme apollotang-light
+      colorscheme tempus_day
       set guifont=Inconsolata:h14
       " set guifont=Menlo\ Regular:h14
       " set guifont=Andale\ Mono:h14
