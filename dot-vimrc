@@ -738,6 +738,11 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ **
 "/ ** ---------------------------------
+"
+  "/
+  "/ default was <leader>f, and is confict w coc format
+  "/ so remap to <leader>i
+  let g:Lf_ShortcutF = '<leader>i'
 
   nmap <space>p :LeaderfFile<cr>
   nmap <space>b :LeaderfBuffer<cr>
