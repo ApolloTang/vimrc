@@ -795,10 +795,10 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ ** ---------------------------------
   "/
-  "/ use :Prettier to format current buffer.
+  "/ Use :Prettier to format current buffer (does not save).
   command! -nargs=0 GGFF :CocCommand prettier.formatFile
-  "/ run pretty and save
   "/
+  "/ run pretty and save
   function! RunPrettier()
     :CocCommand prettier.formatFile
     :w
