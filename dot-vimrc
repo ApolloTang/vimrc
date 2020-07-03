@@ -759,6 +759,11 @@ syntax enable  "/ Turn on syntax highlighting.
     :echom "<Tab> : switch to normal mode"
   endfunction
   command! GGlhelp call LeaderFCustomCommand_help()
+
+  "/ fix bad contrast on cursor line highlight in search pane
+  "/ https://github.com/Yggdroot/LeaderF/issues/402#issuecomment-636458277
+  hi link Lf_hl_cursorline None
+
 "/ ** ---------------------------------
 "/ ** [plugconfig LeaderF END]
 
