@@ -825,7 +825,8 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ **
 "/ ** ---------------------------------
-  let g:NERDTreeIndicatorMapCustom = {
+  " let g:NERDTreeIndicatorMapCustom = { "/ g:NERDTreeIndicatorMapCustom' is deprecated, please use 'g:NERDTreeGitStatusIndicatorMapCustom'
+  let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Modified"  : "✹",
       \ "Staged"    : "✚",
       \ "Untracked" : "✭",
@@ -839,7 +840,8 @@ syntax enable  "/ Turn on syntax highlighting.
       \ }
   "/ How to show ignored status (set to 1)?
   "/ but a heavy feature may cost much more time, so set to 0 (off) for now
-  let g:NERDTreeShowIgnoredStatus = 0
+  "let g:NERDTreeShowIgnoredStatus = 0  "/ g:NERDTreeShowIgnoredStatus' is deprecated, please use 'g:NERDTreeGitStatusShowIgnored
+  let g:NERDTreeGitStatusShowIgnored = 0
 "/ ** ---------------------------------
 "/ ** [Xuyuanp/nerdtree-git-plugin][END]
 
