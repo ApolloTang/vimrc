@@ -186,6 +186,8 @@
         Plug 'wellle/tmux-complete.vim'
 
         Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+          "/ Start the preview :MarkdownPreview
+          "/ Stop the preview" :MarkdownPreviewStop
 
         Plug 'mbbill/undotree'
 
