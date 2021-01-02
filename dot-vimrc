@@ -192,6 +192,8 @@
         Plug 'mbbill/undotree'
 
         Plug 'dhruvasagar/vim-zoom'
+
+        Plug 'vitalk/vim-shebang'
     call plug#end()
 
 
