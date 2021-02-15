@@ -257,23 +257,19 @@ syntax enable  "/ Turn on syntax highlighting.
   set updatetime=300
   "/ don't give |ins-completion-menu| messages.
   set shortmess+=c
-  "/ always show signcolumns
-  set signcolumn=yes
 
-  "/ Coc Style
-  hi CocErrorHighlight       cterm=underline gui=undercurl guisp=red     ctermfg=red
-  hi CocWarningHighlight     cterm=underline gui=undercurl guisp=orange  ctermfg=3
-  hi CocInfoHighlight        cterm=underline gui=undercurl guisp=#bbbff5 ctermfg=blue
-  hi CocHintHighlight        cterm=underline gui=undercurl guisp=green   ctermfg=green
-
-  hi CocErrorsign            ctermfg=red   guifg=red
-  hi CocWarningsign          ctermfg=3     guifg=orange
-  hi CocInfoSign             ctermfg=blue  guifg=#2300b1
-  hi CocHintSign             ctermfg=green guifg=green
-  "/ More highlight set in plugin/coc.vim
+  "/ Always show the signcolumn, otherwise it would shift the text each time
+  "/ diagnostics appear/become resolved.
+  if has("patch-8.1.1564")
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
+  else
+    set signcolumn=yes
+  endif
 
   " Use tab for trigger completion with characters ahead and navigate.
-  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+  " other plugin before putting this into your config.
   inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
         \ <SID>check_back_space() ? "\<TAB>" :
@@ -286,42 +282,57 @@ syntax enable  "/ Turn on syntax highlighting.
   endfunction
 
   " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
+  if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    "/ The next line is commented out b/c '<c-@>' this is conflicted
+    "/ with better touch tool. Instead, we will use <c-space>
+    " inoremap <silent><expr> <c-@> coc#refresh()
+    inoremap <silent><expr> <c-space> coc#refresh()
+  endif
 
-  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-  " Coc only does snippet and additional edit on confirm.
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " Make <CR> auto-select the first completion item and notify coc.nvim to
+  " format on enter, <cr> could be remapped by other vim plugin
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-  " Use `[c` and `]c` to navigate diagnostics
-  nmap <silent> [c <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]c <Plug>(coc-diagnostic-next)
+  " Use `[g` and `]g` to navigate diagnostics
+  " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-  " Remap keys for gotos
+  " GoTo code navigation.
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
-  " Use K to show documentation in preview window
+  " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
     else
-      call CocAction('doHover')
+      execute '!' . &keywordprg . " " . expand('<cword>')
     endif
   endfunction
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
-  "/ Remap for rename current word
-  nmap <space>crn <Plug>(coc-rename)
-  function! CocCustomCommand_renameCurrentWord()
+  " Symbol renaming.
+  nmap <leader>rn <Plug>(coc-rename)
+
+  "/ Apollo's custom
+  function! CocCustomCommand_renameCurrentSymbol()
     :execute "normal \<Plug>(coc-rename)"
   endfunction
-  command! GGCrenameCurrentWord call CocCustomCommand_renameCurrentWord()
+  command! GGcocRenameCurrentSymbol call CocCustomCommand_renameCurrentSymbol()
+
+  "/ [Coc configuration refactor pause at this line 2021.02.15]
 
   "/ Open refactor window for refactor of current symbol
   nmap <space>crf <Plug>(coc-refactor)
@@ -397,18 +408,33 @@ syntax enable  "/ Turn on syntax highlighting.
   " Resume latest coc list
   nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-
   function! CocCustomCommand_help()
+    :echom "-------------- GGhelpCoc"
+    :echom "GGcocRenameCurrentSymbol: <leader>rn <Plug>(coc-rename)"
     :echom "nmap <silent> gd <Plug>(coc-definition)"
     :echom "nmap <silent> gy <Plug>(coc-type-definition)"
     :echom "nmap <silent> gi <Plug>(coc-implementation)"
     :echom "nmap <silent> gr <Plug>(coc-references)"
-    :echom "Format selected              x: xmap <leader>f  <Plug>(coc-format-selected)"
+    :echom "Format selected               : xmap <leader>f  <Plug>(coc-format-selected)"
     :echom "Show all diagnostics          : nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>"
     :echom "Find symbol in this document  : nnoremap <silent> <space>o  :<C-u>CocList outline<cr>"
     :echom "Search workspace symbols      : nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>"
   endfunction
-  command! GGChelp call CocCustomCommand_help()
+  command! GGhelpCoc call CocCustomCommand_help()
+
+
+  "/ Coc Style
+  hi CocErrorHighlight       cterm=underline gui=undercurl guisp=red     ctermfg=red
+  hi CocWarningHighlight     cterm=underline gui=undercurl guisp=orange  ctermfg=3
+  hi CocInfoHighlight        cterm=underline gui=undercurl guisp=#bbbff5 ctermfg=blue
+  hi CocHintHighlight        cterm=underline gui=undercurl guisp=green   ctermfg=green
+
+  hi CocErrorsign            ctermfg=red   guifg=red
+  hi CocWarningsign          ctermfg=3     guifg=orange
+  hi CocInfoSign             ctermfg=blue  guifg=#2300b1
+  hi CocHintSign             ctermfg=green guifg=green
+  "/ More highlight set in plugin/coc.vim
+
 "/ ** ---------------------------------
 "/ ** [plugconfig coc END]
 
@@ -753,6 +779,11 @@ syntax enable  "/ Turn on syntax highlighting.
   nmap <space>b :LeaderfBuffer<cr>
 
   function! LeaderFCustomCommand_help()
+    :echom "----------- GGhelpLeader"
+    :echom "LF_ShortcutF is <leader>i"
+    :echom "<space>p : LeaderfFile"
+    :echom "<space>b : LeaderfBuffer"
+
     :echom "<C-P> : preview the result"
     :echom "<C-V> : paste from clipboard"
     :echom "<C-J>, <C-K> : navigate the result list"
@@ -763,7 +794,7 @@ syntax enable  "/ Turn on syntax highlighting.
     :echom "<C-L> : clear all selections"
     :echom "<Tab> : switch to normal mode"
   endfunction
-  command! GGlhelp call LeaderFCustomCommand_help()
+  command! GGhelpLeader call LeaderFCustomCommand_help()
 
   "/ fix bad contrast on cursor line highlight in search pane
   "/ https://github.com/Yggdroot/LeaderF/issues/402#issuecomment-636458277
@@ -804,21 +835,33 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ **
 "/ ** ---------------------------------
-  "/
+
   "/ Use :Prettier to format current buffer (does not save).
   command! -nargs=0 GGFF :CocCommand prettier.formatFile
-  "/
-  "/ run pretty and save
+
+  "/ Run prettier and then save the buffer.
   function! RunPrettier()
     :CocCommand prettier.formatFile
     :w
     echo 'Run prettier and save'
   endfunction
-  command! GGFs call RunPrettier()
-  "/
+  command! GGFFs call RunPrettier()
+
   "/ <leader>f for range format.
   vmap <leader>f  <Plug>(coc-format-selected)
   nmap <leader>f  <Plug>(coc-format-selected)
+
+  function! CocPlugin_prettier()
+    :echom "Format selected range"
+    :echom "---------------------"
+    :echom "vmap <leader>f  <Plug>(coc-format-selected)"
+    :echom "nmap <leader>f  <Plug>(coc-format-selected)"
+    :echom "---------------------"
+    :echom "Format buffer (do not save): GGFF"
+    :echom "Format buffer (save): GGFFs"
+  endfunction
+  command! GGhelpCocPluginPrettier call CocPlugin_prettier()
+
 "/ ** ---------------------------------
 "/ ** [coc-plugin coc-prettier END]
 
@@ -1383,7 +1426,7 @@ command! W :wa
       let path = expand("%:p:h")
       exec ':!open -a iterm ' . path
     endfunction
-    command! CitermHere call OpenItermAtPath_dir()
+    command! GGcusItermHere call OpenItermAtPath_dir()
 
     """"""""""""""""""""""""""""
     " cd to desktop
@@ -1794,7 +1837,7 @@ nnoremap <space>mm @m
           silent execute 'bwipeout' buf
       endfor
   endfunction
-  command! Cdhbs call DeleteHiddenBuffers() <bar> :echo ":call DeleteHiddenBuffers()"
+  command! GGdhbs call DeleteHiddenBuffers() <bar> :echo ":call DeleteHiddenBuffers()"
 
 
   " @TODO folllowing has not being implimented
@@ -2032,6 +2075,16 @@ command! CnerdPreview call LaunchNERDTreeSetPreview()
   " Windows ('noshellslash')
 
 "/ }}}
+
+function! CustomCommand_help()
+  :echom "-------- GGhelpGG :: CustomCommand_help()"
+  :echom "GGdhbs : delete hidden buffer"
+  :echom "GGcddt : make current directory point to desktop"
+  :echom "GGcusItermHere : open item2 w current directory"
+  :echom "<leader>fr : Rename current file"
+  :echom "<leader>d : Open directory of current file"
+endfunction
+command! GGhelpGG call CustomCommand_help()
 
 " END .vimrc
 
