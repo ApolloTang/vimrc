@@ -1915,7 +1915,7 @@ nnoremap <space>mm @m
     endif
   endfunction
 
-  command! CpreviewToggle call NerdPreviewToggle()
+  command! GGpreviewToggle call NerdPreviewToggle()
 "}
 
 
@@ -1925,9 +1925,9 @@ nnoremap <space>mm @m
 function! LaunchNERDTreeSetPreview()
   let path = expand("%:p:h")
   exec ':NERDTree'
-  exec ':CpreviewToggle'
+  exec ':GGpreviewToggle'
 endfunction
-command! CnerdPreview call LaunchNERDTreeSetPreview()
+command! GGnerdPreview call LaunchNERDTreeSetPreview()
 
 
 " Yank filename/dirname {-------------------------------------------------
