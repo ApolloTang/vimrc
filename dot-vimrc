@@ -1948,28 +1948,28 @@ command! GGnerdPreview call LaunchNERDTreeSetPreview()
       let @+ = expand("%:p")
       echo 'cb> ' . @+
     endfunction
-    command! CpathFull call GetPath_full()
+    command! GGpathFull call GetPath_full()
 
     function! GetPath_base()
       " Filename + ext, eg: 'init.vim' in '/home/user/nvim/init.vim'
       let @+ = expand("%:t")
       echo 'cb> ' . @+
     endfunction
-    command! CpathBase call GetPath_base()
+    command! GGpathBase call GetPath_base()
 
     function! GetPath_dir()
       " Full dir path: eg. '/home/user/nvim' in '/home/user/nvim/init.vim'
       let @+ = expand("%:p:h")
       echo 'cb> ' . @+
     endfunction
-    command! CpathDir call GetPath_dir()
+    command! GGpathDir call GetPath_dir()
 
     function! GetPath_DirTail()
       " Current Enclosing Dir Name, eg. 'nvim' in '/home/user/nvim/init.vim'
       let @+ = expand("%:p:h:t")
       echo 'cb> ' . @+
     endfunction
-    command! CpathDirTail call GetPath_DirTail()
+    command! GGpathDirTail call GetPath_DirTail()
 
     " Ref: http://stackoverflow.com/questions/916875/yank-file-name-path-of-current-buffer-in-vim/37192216#37192216
 " }
