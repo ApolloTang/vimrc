@@ -1431,7 +1431,7 @@ command! W :wa
       let path = expand("%:p:h")
       exec ':!open -a iterm ' . path
     endfunction
-    command! GGcusItermHere call OpenItermAtPath_dir()
+    command! GGopenItermHere call OpenItermAtPath_dir()
 
     """"""""""""""""""""""""""""
     " cd to desktop
