@@ -194,6 +194,11 @@
         Plug 'dhruvasagar/vim-zoom'
 
         Plug 'vitalk/vim-shebang'
+
+        Plug 'heavenshell/vim-jsdoc', {
+          \ 'for': ['javascript', 'javascript.jsx','typescript'],
+          \ 'do': 'make install'
+        \}
     call plug#end()
 
 
