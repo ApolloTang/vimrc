@@ -201,6 +201,8 @@
         \}
 
         Plug 'metakirby5/codi.vim'
+
+        Plug 'neoclide/jsonc.vim'
     call plug#end()
 
 
