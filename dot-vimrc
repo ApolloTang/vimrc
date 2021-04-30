@@ -295,14 +295,23 @@ syntax enable  "/ Turn on syntax highlighting.
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
-  " Use <c-space> to trigger completion.
+  "/ Use <c-space> to trigger completion.
+  "/ This is same as vscode
   if has('nvim')
     inoremap <silent><expr> <c-space> coc#refresh()
-  else
+  elseif has("gui_macvim")
+    "/
     "/ The next line is commented out b/c '<c-@>' this is conflicted
     "/ with better touch tool. Instead, we will use <c-space>
-    " inoremap <silent><expr> <c-@> coc#refresh()
+    "inoremap <silent><expr> <c-@> coc#refresh()
     inoremap <silent><expr> <c-space> coc#refresh()
+    "/
+    "/ My alternative mapping:
+    inoremap <silent><expr> <C-o><space> coc#refresh()
+  else
+    "/
+    "/ vim in terminal
+    inoremap <silent><expr> <c-@> coc#refresh()
   endif
 
   " Make <CR> auto-select the first completion item and notify coc.nvim to
