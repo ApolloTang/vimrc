@@ -1075,6 +1075,7 @@ syntax enable  "/ Turn on syntax highlighting.
       \trail:·,
       " \eol:¬
 
+    set shortmess-=S "/ see: vi.stackexchange.com/questions/15944/how-to-display-in-the-statusline-the-number-of-matches-from-a-search
 
     "\ ---------------
     "\  Status line
