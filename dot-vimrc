@@ -1519,6 +1519,12 @@ command! W :wa
         execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
         let i = i + 1
     endwhile
+
+   "\ Increase/decrease the window width by:
+   nnoremap <silent> w- :exec "vertical resize " . (winwidth(0) - 30)<CR>
+   nnoremap <silent> w= :exec "vertical resize " . (winwidth(0) + 30 )<CR>
+   "\ Set the window width to:
+   nnoremap <silent> w0 :exec "vertical resize " . 100<CR>
 " }
 
 "/ Interact with shell { --------------------------------------------------
