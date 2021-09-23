@@ -1489,43 +1489,46 @@ command! W :wa
     endfunction
     command! GGcddt call Cd_to_desktop()
 
-" window { ---------------------------------------------------------------
-    " ##  Window resizing
-    nnoremap <leader>ww 30<c-w>>
-    nnoremap <leader>nn 30<c-w><
 
-    nnoremap <leader>www 30<c-w>+
-    nnoremap <leader>nnn 30<c-w>-
+"/ ==============
+"/ section
+"/   window
+"/   slip
+"/ ==============
+  "# Window height resizing (@TODO):
+  "nnoremap <leader>www 30<c-w>+
+  "nnoremap <leader>nnn 30<c-w>-
+
+  "# Window width resizing:
+    "# Decrease:
+    nnoremap <silent> w- 30<c-w><
+    "# Increase:
+    nnoremap <silent> w= 30<c-w>>
+    "# Resizing window can also be accomplished by following:
+    "#   nnoremap <silent> w- :exec "vertical resize " . (winwidth(0) - 30)<CR>
+    "# see: https://vim.fandom.com/wiki/Resize_splits_more_quickly
+
+  "# Set the window width to:
+  nnoremap <silent> w0 :exec "vertical resize " . 100<CR>
+
+ "# Move around splits
+ nnoremap <c-j> <c-w>j
+ nnoremap <c-k> <c-w>k
+ nnoremap <c-h> <c-w>h
+ nnoremap <c-l> <c-w>l
+
+ "# Jump to window:
+ "# http://stackoverflow.com/questions/6403716/shortcut-for-moving-between-vim-windows
+ let i = 1
+ while i <= 19
+   execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+   let i = i + 1
+ endwhile
 
 
-    " ## Move around splits
-    nnoremap <c-j> <c-w>j
-    nnoremap <c-k> <c-w>k
-    nnoremap <c-h> <c-w>h
-    nnoremap <c-l> <c-w>l
-
-    " ## Move around splits
-    " nnoremap <leader>j <c-w>j
-    " nnoremap <leader>k <c-w>k
-    " nnoremap <leader>h <c-w>h
-    " nnoremap <leader>l <c-w>l
-
-    "\ ----------------
-    "\  Jump to window
-    "\ ----------------
-    "\ http://stackoverflow.com/questions/6403716/shortcut-for-moving-between-vim-windows
-    let i = 1
-    while i <= 19
-        execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-        let i = i + 1
-    endwhile
-
-   "\ Increase/decrease the window width by:
-   nnoremap <silent> w- :exec "vertical resize " . (winwidth(0) - 30)<CR>
-   nnoremap <silent> w= :exec "vertical resize " . (winwidth(0) + 30 )<CR>
-   "\ Set the window width to:
-   nnoremap <silent> w0 :exec "vertical resize " . 100<CR>
-" }
+"/ ==============
+"/ section
+"/ ==============
 
 "/ Interact with shell { --------------------------------------------------
     "/ Next command open Terminal at pwd via npm module 'ttab'
