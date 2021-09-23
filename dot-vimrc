@@ -1511,19 +1511,19 @@ command! W :wa
   "# Set the window width to:
   nnoremap <silent> w0 :exec "vertical resize " . 100<CR>
 
- "# Move around splits
- nnoremap <c-j> <c-w>j
- nnoremap <c-k> <c-w>k
- nnoremap <c-h> <c-w>h
- nnoremap <c-l> <c-w>l
+  "# Move around splits
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-l> <c-w>l
 
- "# Jump to window:
- "# http://stackoverflow.com/questions/6403716/shortcut-for-moving-between-vim-windows
- let i = 1
- while i <= 19
-   execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-   let i = i + 1
- endwhile
+  "# Jump to window:
+  "# http://stackoverflow.com/questions/6403716/shortcut-for-moving-between-vim-windows
+  let i = 1
+  while i <= 19
+    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    let i = i + 1
+  endwhile
 
 
 "/ ==============
