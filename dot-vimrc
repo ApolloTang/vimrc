@@ -961,10 +961,10 @@ syntax enable  "/ Turn on syntax highlighting.
 
 
 " Python Setting {
-  set pythondll=/usr/local/Frameworks/Python.framework/Versions/3.9/Python
-  set pythonhome=/usr/local/Frameworks/Python.framework/Versions/3.9
-  set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.9/Python
-  set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.9
+  " set pythondll=/usr/local/Frameworks/Python.framework/Versions/3.9/Python
+  " set pythonhome=/usr/local/Frameworks/Python.framework/Versions/3.9
+  " set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.9/Python
+  " set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.9
 
   "/ To check python version:
   "
