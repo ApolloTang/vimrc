@@ -1148,13 +1148,12 @@ syntax enable  "/ Turn on syntax highlighting.
     "\ ---------------
     "\  Sound
     "\ ---------------
-    " No sound on errors
     set noerrorbells
-    "set visualbell                    " No beeping.
     set novisualbell                   " No flashing
     set tm=500
     "/ disable bell in mac. http://stackoverflow.com/questions/16047146/disable-bell-in-macvim
     autocmd! GUIEnter * set vb t_vb=
+    set belloff=all "/ https://vim.fandom.com/wiki/Disable_beeping
 
 
     "/ rainbow:  https://github.com/luochen1990/rainbow
