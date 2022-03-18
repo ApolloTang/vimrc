@@ -155,13 +155,16 @@
         Plug 'https://github.com/flowtype/vim-flow'
 
         "/ Theme
-        Plug 'https://github.com/morhetz/gruvbox'
-        Plug 'https://github.com/ApolloTang/apollotang-light'
-        Plug 'https://github.com/ApolloTang/vim-color-apollotang'
+        "Plug 'https://github.com/morhetz/gruvbox'
+        "Plug 'https://github.com/ApolloTang/apollotang-light'
+        "Plug 'https://github.com/ApolloTang/vim-color-apollotang'
+        "Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+          "/ scheenshot for tempus themes:
+          "/   https://gitlab.com/protesilaos/tempus-themes#screenshots-sort-a-z
+        Plug 'haystackandroid/snow'
+          "/ scheenshot for haystackandroid/snow:
+          "/   https://vimcolorschemes.com/haystackandroid/snow
 
-        Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
-        "/ scheenshot for tempus themes:
-        "/   https://gitlab.com/protesilaos/tempus-themes#screenshots-sort-a-z
 
         Plug 'https://github.com/editorconfig/editorconfig-vim'
 
@@ -227,12 +230,20 @@ syntax enable  "/ Turn on syntax highlighting.
       " colorscheme slate
       " colorscheme apollotang
       " colorscheme apollotang-light
-      colorscheme tempus_day
+      " colorscheme tempus_day
+
+      set background=light
+      colorscheme snow
+
       set guifont=Inconsolata\ 9
     elseif has("gui_macvim")
       " echo 'is macvim'
       " colorscheme apollotang-light
-      colorscheme tempus_day
+      " colorscheme tempus_day
+
+      set background=light
+      colorscheme snow
+
       set guifont=Inconsolata:h14
       " set guifont=Menlo\ Regular:h14
       " set guifont=Andale\ Mono:h14
@@ -462,7 +473,7 @@ syntax enable  "/ Turn on syntax highlighting.
   hi CocErrorsign            ctermfg=red   guifg=red
   hi CocWarningsign          ctermfg=3     guifg=orange
   hi CocInfoSign             ctermfg=blue  guifg=#2300b1
-  hi CocHintSign             ctermfg=green guifg=green
+  hi CocHintSign             ctermfg=darkcyan guifg=darkcyan
   "/ More highlight set in plugin/coc.vim
 
 "/ ** ---------------------------------
