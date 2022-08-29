@@ -306,22 +306,17 @@ syntax enable  "/ Turn on syntax highlighting.
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
-  "/ Use <c-space> to trigger completion.
-  "/ This is same as vscode
+  "/ Use <c-space> to trigger completion. This is same as vscode's Ctrl+Space.
   if has('nvim')
     inoremap <silent><expr> <c-space> coc#refresh()
   elseif has("gui_macvim")
-    "/
-    "/ The next line is commented out b/c '<c-@>' this is conflicted
-    "/ with better touch tool. Instead, we will use <c-space>
-    "inoremap <silent><expr> <c-@> coc#refresh()
     inoremap <silent><expr> <c-space> coc#refresh()
-    "/
     "/ My alternative mapping:
     inoremap <silent><expr> <C-o><space> coc#refresh()
+    "/ (not sure I still need the above alternate mapping; I will consider remove it in the future):
   else
-    "/
-    "/ vim in terminal
+    "/ Vim in terminal pressing 'Ctrl+space' is triggering  <c-@> instead of <c-space>
+    "/ see: https://github.com/neoclide/coc.nvim/issues/2176
     inoremap <silent><expr> <c-@> coc#refresh()
   endif
 
