@@ -161,7 +161,9 @@
         "Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
           "/ scheenshot for tempus themes:
           "/   https://gitlab.com/protesilaos/tempus-themes#screenshots-sort-a-z
-        Plug 'haystackandroid/snow'
+
+        " Plug 'haystackandroid/snow' "/ <--- this repo have disappeared from github
+        Plug 'ApolloTang/vim-theme-snow-cloned'
           "/ scheenshot for haystackandroid/snow:
           "/   https://vimcolorschemes.com/haystackandroid/snow
 
