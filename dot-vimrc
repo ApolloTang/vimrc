@@ -340,6 +340,12 @@ syntax enable  "/ Turn on syntax highlighting.
   "/   other plugin otherwise the following will not work.
     inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
+
+  "/ Colors in completion dropdown:
+    hi CocSearch ctermfg=12 guifg=#18A3FF
+    hi CocMenuSel ctermbg=109 guibg=#e5bb7e
+
+
   "/ Use `[g` and `]g` to navigate diagnostics
   "/ Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
