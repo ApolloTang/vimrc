@@ -334,6 +334,12 @@ syntax enable  "/ Turn on syntax highlighting.
           \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
+  "/ Use <CR> to confirm completion
+  "/ NOTE:
+  "/   Use command ':verbose imap <CR>' to make sure character return is not re-mapped by
+  "/   other plugin otherwise the following will not work.
+    inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+
   "/ Use `[g` and `]g` to navigate diagnostics
   "/ Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
