@@ -342,8 +342,8 @@ syntax enable  "/ Turn on syntax highlighting.
 
 
   "/ Colors in completion dropdown:
-    hi CocSearch ctermfg=12 guifg=#18A3FF
-    hi CocMenuSel ctermbg=109 guibg=#e5bb7e
+    hi CocSearch ctermfg=12 guifg=#f80409    "/ fg for matched highlight
+    hi CocMenuSel ctermbg=109 guibg=#ffe4bd  "/ bg of current selection
 
 
   "/ Use `[g` and `]g` to navigate diagnostics
