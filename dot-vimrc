@@ -297,7 +297,7 @@ syntax enable  "/ Turn on syntax highlighting.
 
   "/ Use <tab> and <S-tab> to navigate completion list:
   "/ NOTE:
-  "/   Use command ':verbose imap <tab>' to make sure tab is not mapped by
+  "/   Use command ':verbose imap <tab>' to make sure tab is not re-mapped by
   "/   other plugin otherwise the following will not work.
     inoremap <silent><expr> <TAB>
           \ coc#pum#visible() ? coc#pum#next(1):
@@ -327,7 +327,7 @@ syntax enable  "/ Turn on syntax highlighting.
 
   "/ Make <CR> auto-select the first completion item and notify coc.nvim to format on enter.
   "/ NOTE:
-  "/   Use command ':verbose imap <CR>' to make sure caracter return is no remapped by
+  "/   Use command ':verbose imap <CR>' to make sure character return is not re-mapped by
   "/   other plugin otherwise the following will not work.
     inoremap <silent><expr> <CR>
           \ coc#pum#visible() ? coc#_select_confirm():
