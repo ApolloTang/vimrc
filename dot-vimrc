@@ -162,11 +162,8 @@
           "/ scheenshot for tempus themes:
           "/   https://gitlab.com/protesilaos/tempus-themes#screenshots-sort-a-z
 
-        " Plug 'haystackandroid/snow' "/ <--- this repo have disappeared from github
-        Plug 'ApolloTang/vim-theme-snow-cloned'
-          "/ scheenshot for haystackandroid/snow:
-          "/   https://vimcolorschemes.com/haystackandroid/snow
-
+        Plug 'ApolloTang/theme-vim--snow'
+        Plug 'mcchrish/zenbones.nvim'
 
         Plug 'https://github.com/editorconfig/editorconfig-vim'
 
