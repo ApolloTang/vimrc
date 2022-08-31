@@ -505,19 +505,28 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ **
 "/ **
 "/ ** ---------------------------------
-  "/The folowing is similar to coc configuration so rename
-  inoremap <silent><expr> <F4>
-        \ pumvisible() ? coc#_select_confirm() :
-        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-        \ <SID>coc_snippet_check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
 
-  function! s:coc_snippet_check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
+  "/ Ultisnips' snippets are saved under folder:
+  "/
+  "/   ~/1/1-sy/dot-config/coc/ultisnips/
+  "/
+  "/ URL to github is:
+  "/
+  "/   https://github.com/ApolloTang/ultisnips
+  "/
 
-  let g:coc_snippet_next = '<F4>'
+  "/ Bellow, I think it is over-writing the '<tab> and <S-tab>'
+  "/ completion list's navigation, so I remap it to <F4>
+  "/
+  " inoremap <silent><expr> <TAB>
+    inoremap <silent><expr> <F4>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackSpace() ? "\<TAB>" :
+      \ coc#refresh()
+
+    let g:coc_snippet_next = '<F4>'
 
   "/------------------------------------------
   "/ ** the following configuration still wip
