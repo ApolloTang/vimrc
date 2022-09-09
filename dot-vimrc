@@ -354,11 +354,18 @@ syntax enable  "/ Turn on syntax highlighting.
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
-  "/ This trigger function signature help like vscode's Cmd+Shift+Space
+
+  "/ ##
+  "/ ## Trigger function signature help like vscode's Cmd+Shift+Space
+  "/ ##
   "/ To do this this, place cursor in the function parenthesis, switch to insert
-  "/ mode and press <c-p>
-  "/ https://github.com/neoclide/coc.nvim/issues/2202#issuecomment-662969193
-  inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
+  "/ mode and press <c-p> ( see: https://github.com/neoclide/coc.nvim/issues/2202#issuecomment-662969193 )
+  "inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp') <cr>
+  "/
+  "/ The mapping above is commented out b/c it overwritten dropdown-navigation-up in completion,
+  "/ ( see: https://medium.com/usevim/vim-101-completion-compendium-97b4ebc3a45a )
+  "/ The folloing is a better mapping (from: https://github.com/neoclide/coc.nvim/issues/2656#issuecomment-845903417 )
+  inoremap <silent> <space>s <C-r>=CocActionAsync('showSignatureHelp')<CR>
 
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
