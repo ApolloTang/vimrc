@@ -52,8 +52,6 @@
         Plug 'brooth/far.vim'
             "/ Find and replace text through multiple files.
 
-
-
         Plug 'https://github.com/cakebaker/scss-syntax.vim'
         Plug 'https://github.com/hail2u/vim-css3-syntax'
 
@@ -345,6 +343,7 @@ syntax enable  "/ Turn on syntax highlighting.
   "/ ( see: https://medium.com/usevim/vim-101-completion-compendium-97b4ebc3a45a )
   "/ The folloing is a better mapping (from: https://github.com/neoclide/coc.nvim/issues/2656#issuecomment-845903417 )
   inoremap <silent> <space>s <C-r>=CocActionAsync('showSignatureHelp')<CR>
+
 
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
