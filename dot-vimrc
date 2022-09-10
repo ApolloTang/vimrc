@@ -1060,9 +1060,6 @@ syntax enable  "/ Turn on syntax highlighting.
     set ruler                               " Show cursor position.
     set relativenumber                      " use relative number
 
-    set incsearch                           " Highlight matches as you type.
-    set hlsearch                            " Highlight matches.
-
     " set scrolloff=3                       " Show 3 lines of context around the cursor.
     set scrolloff=0                         " Show 0 lines of context around the cursor.
 
@@ -1180,6 +1177,8 @@ syntax enable  "/ Turn on syntax highlighting.
                   "/   see: vi.stackexchange.com/questions/15944/how-to-display-in-the-statusline-the-number-of-matches-from-a-search
  set nowrapscan   "/ Turn off search wrapping
  set shortmess-=s "/ Show the symbol 'W' before search count when search hit BOTTOM/TOP, (if 'set wrapscan' is used )
+  set incsearch    "/ Highlight matches as you type.
+  set hlsearch     "/ Highlight matches.
 
 
 " Syntax highlight { ------------------------------------------------------
