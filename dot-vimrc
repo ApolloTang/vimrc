@@ -1165,20 +1165,20 @@ syntax enable  "/ Turn on syntax highlighting.
     "let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
 " }
 
- "/ ##
- "/ ## Search Setting
- "/ ##
- "/ ## See the follwoing on Search commands and patterns:
- "/ ##   http://vimdoc.sourceforge.net/htmldoc/usr_27.html
- "/ ##
- set ignorecase   "/ Case-insensitive searching.
- set smartcase    "/ But case-sensitive if expression contains a capital letter.
- set shortmess-=S "/ Show search count message when searching, e.g.'[1/5]'
-                  "/   see: vi.stackexchange.com/questions/15944/how-to-display-in-the-statusline-the-number-of-matches-from-a-search
- set nowrapscan   "/ Turn off search wrapping
- set shortmess-=s "/ Show the symbol 'W' before search count when search hit BOTTOM/TOP, (if 'set wrapscan' is used )
+"/ ##
+"/ ## Search Settings
+"/ ##
+"/ ## See the follwoing on Search commands and patterns:
+"/ ##   http://vimdoc.sourceforge.net/htmldoc/usr_27.html
+"/ ##
   set incsearch    "/ Highlight matches as you type.
   set hlsearch     "/ Highlight matches.
+  set ignorecase   "/ Case-insensitive searching.
+  set smartcase    "/ But case-sensitive if expression contains a capital letter.
+  set shortmess-=S "/ Show search count message when searching, e.g.'[1/5]';
+                   "/   ( see: vi.stackexchange.com/questions/15944/how-to-display-in-the-statusline-the-number-of-matches-from-a-search ).
+  set nowrapscan   "/ Turn off search wrapping.
+  set shortmess-=s "/ Show the symbol 'W' before search count when search hit BOTTOM/TOP (if 'set wrapscan' is used).
 
 
 " Syntax highlight { ------------------------------------------------------
