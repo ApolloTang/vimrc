@@ -251,8 +251,11 @@ syntax enable  "/ Turn on syntax highlighting.
 "/ ** ---------------------------------
   "/ You will have bad experience for diagnostic messages when it's default 4000.
   set updatetime=300
+
   "/ don't give |ins-completion-menu| messages.
-  set shortmess+=c
+  "set shortmess+=c
+  "/ This setting is no longer present on neoclide/coc.nvim README. So
+  "/ I am not sure if 'shortmess+=c' is still required, turn off for now.
 
   "/ Always show the signcolumn, otherwise it would shift the text each time
   "/ diagnostics appear/become resolved.
