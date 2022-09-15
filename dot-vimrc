@@ -419,10 +419,10 @@ syntax enable  "/ Turn on syntax highlighting.
   "nmap <leader>cl  <Plug>(coc-codelens-action) "/ TODO <leader> not working, use <space>
   nmap <space>cl  <Plug>(coc-codelens-action)
 
-  " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-  nmap <silent> <TAB> <Plug>(coc-range-select)
-  xmap <silent> <TAB> <Plug>(coc-range-select)
-  xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+  "/ Use CTRL-S for selections ranges.
+  "/ Requires 'textDocument/selectionRange' support of language server.
+  nmap <silent> <C-s> <Plug>(coc-range-select)
+  xmap <silent> <C-s> <Plug>(coc-range-select)
 
   " Use `:GGCFormatCurrentBuffer` to format current buffer
   command! -nargs=0 GGCFormatCurrentBuffer :call CocAction('format')
