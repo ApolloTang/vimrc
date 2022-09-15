@@ -268,11 +268,11 @@ syntax enable  "/ Turn on syntax highlighting.
   "/ NOTE:
   "/   Use command ':verbose imap <tab>' to make sure tab is not re-mapped by
   "/   other plugin otherwise the following will not work.
-    inoremap <silent><expr> <TAB>
-          \ coc#pum#visible() ? coc#pum#next(1):
-          \ <SID>CheckBackSpace() ? "\<TAB>" :
-          \ coc#refresh()
-    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
+  inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1):
+        \ <SID>CheckBackSpace() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
 
       function! CheckBackSpace() abort
         let col = col('.') - 1
