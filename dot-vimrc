@@ -301,10 +301,6 @@ syntax enable  "/ Turn on syntax highlighting.
     inoremap <silent><expr> <c-@> coc#refresh()
   endif
 
-  "/ Colors in completion dropdown:
-    hi CocSearch ctermfg=12 guifg=#f80409    "/ fg for matched highlight
-    hi CocMenuSel ctermbg=109 guibg=#ffe4bd  "/ bg of current selection
-
 
   "/ Use `[g` and `]g` to navigate diagnostics
   "/ Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -453,6 +449,10 @@ syntax enable  "/ Turn on syntax highlighting.
   endfunction
   command! GGhelpCoc call CocCustomCommand_help()
 
+  "/ Colors in completion dropdown:
+  "/   from: https://github.com/neoclide/coc.nvim/pull/3862
+  hi CocSearch ctermfg=12 guifg=#f80409    "/ fg for matched highlight
+  hi CocMenuSel ctermbg=109 guibg=#ffe4bd  "/ bg of current selection
 
   "/ Coc Style
   hi CocErrorHighlight       cterm=underline gui=undercurl guisp=red     ctermfg=red
