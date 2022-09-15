@@ -433,6 +433,7 @@ syntax enable  "/ Turn on syntax highlighting.
 
   "/ Organize import of current buffer
   command! -nargs=0 GGCocOrganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
+  "/ see: https://community.vscodetips.com/tonyhicks20/automatically-organize-imports-346d
 
   " Add diagnostic info for https://github.com/itchyny/lightline.vim
   let g:lightline = {
