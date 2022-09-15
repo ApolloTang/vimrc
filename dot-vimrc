@@ -276,10 +276,10 @@ syntax enable  "/ Turn on syntax highlighting.
 
   "/ Make <CR> to accept selected completion item or notify coc.nvim to format
   "/ <C-g>u breaks current undo, please make your own choice.
+  "/ SEE:
+  "/  https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-cr-to-confirm-completion
   "/ NOTE:
-  "/ Use command ':verbose imap <CR>' to make sure character return is not re-mapped by other plugin.
-  " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-  "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  "/  Use command ':verbose imap <CR>' to make sure character return is not re-mapped by other plugin.
   inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
   function! CheckBackSpace() abort
