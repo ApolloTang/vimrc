@@ -1697,15 +1697,15 @@ nnoremap <space>mm @m
     " set guioptions+=a
 
     " yank to clipboard
-    map <c-b> "*y
+    " map <c-b> "*y
 
     " paste clipboard under cursor
-    nnoremap <c-f> "*P
-    vnoremap <c-f> "*P
+    " nnoremap <c-f> "*P
+    " vnoremap <c-f> "*P
 
     " paste previous yank under cursor
-    nnoremap <c-g> "0P
-    vnoremap <c-g> "0P
+    " nnoremap <c-g> "0P
+    " vnoremap <c-g> "0P
 
     "/ paste clipboard *after* cursor
     "nnoremap <leader>f "*p
@@ -1714,8 +1714,8 @@ nnoremap <space>mm @m
     "/     so it is commented out.
 
     " paste previous yank *after* cursor
-    nnoremap <leader>g "0p
-    vnoremap <leader>g "0p
+    " nnoremap <leader>g "0p
+    " vnoremap <leader>g "0p
 "}
 
 
