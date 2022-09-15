@@ -384,9 +384,12 @@ syntax enable  "/ Turn on syntax highlighting.
   endfunction
   command! GGCrefactor call CocCustomCommand_refactor()
 
-  " Remap for format selected region
-  xmap <leader>f  <Plug>(coc-format-selected)
-  nmap <leader>f  <Plug>(coc-format-selected)
+  "/ Remap for format selected region
+  " xmap <leader>f  <Plug>(coc-format-selected)
+  " nmap <leader>f  <Plug>(coc-format-selected)
+  "/ in the above, not sure why my <leader> use <space> for now
+  xmap <space>f  <Plug>(coc-format-selected)
+  nmap <space>f  <Plug>(coc-format-selected)
 
   augroup mygroup
     autocmd!
