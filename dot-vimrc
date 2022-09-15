@@ -260,18 +260,9 @@ syntax enable  "/ Turn on syntax highlighting.
 
   "/ Always show the signcolumn, otherwise it would shift the text each time
   "/ diagnostics appear/become resolved.
-  " if has("patch-8.1.1564")
-  "   " Recently vim can merge signcolumn and number column into one
-  "   set signcolumn=number
-  " else
-  "   set signcolumn=yes
-  " endif
-  "/
   "/ Recently vim can merge signcolumn and number column into one
   "/ but I don't want to merge b/c I want to see both signcolum and number
-  set signcolumn=yes
-  "/
-
+  set signcolumn=yes  "/ alway draw the signcolumn
 
   "/ Use <tab> and <S-tab> to navigate completion list:
   "/ NOTE:
