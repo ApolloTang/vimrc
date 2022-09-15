@@ -424,14 +424,15 @@ syntax enable  "/ Turn on syntax highlighting.
   nmap <silent> <C-s> <Plug>(coc-range-select)
   xmap <silent> <C-s> <Plug>(coc-range-select)
 
-  " Use `:GGCFormatCurrentBuffer` to format current buffer
-  command! -nargs=0 GGCFormatCurrentBuffer :call CocAction('format')
+  "/ Format current buffer
+  "/ This command was 'Format' in official README
+  command! -nargs=0 GGCocFormatCurrentBuffer :call CocAction('format')
 
-  " Use `:GGCfoldCurrentBuffer` to fold current buffer
-  command! -nargs=? GGCfoldCurrentBuffer :call CocAction('fold', <f-args>)
+  "/ Fold current buffer
+  command! -nargs=? GGCocFoldCurrentBuffer :call CocAction('fold', <f-args>)
 
-  " use `:GGCorganizeImport` for organize import of current buffer
-  command! -nargs=0 GGCorganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
+  "/ Organize import of current buffer
+  command! -nargs=0 GGCocOrganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
 
   " Add diagnostic info for https://github.com/itchyny/lightline.vim
   let g:lightline = {
