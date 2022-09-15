@@ -1699,6 +1699,9 @@ nnoremap <space>mm @m
     " set clipboard+=autoselect
     " set guioptions+=a
 
+    "/ TODO
+    "/ Deactive my custom paste command for now , need to redesign.
+
     " yank to clipboard
     " map <c-b> "*y
 
