@@ -371,7 +371,7 @@ syntax enable  "/ Turn on syntax highlighting.
   function! CocCustomCommand_renameCurrentSymbol()
     :execute "normal \<Plug>(coc-rename)"
   endfunction
-  command! GGcocRenameCurrentSymbol call CocCustomCommand_renameCurrentSymbol()
+  command! GGCocRenameCurrentSymbol call CocCustomCommand_renameCurrentSymbol()
 
   "/ [Coc configuration refactor pause at this line 2021.02.15]
 
@@ -382,7 +382,7 @@ syntax enable  "/ Turn on syntax highlighting.
   function! CocCustomCommand_refactor()
     :execute "normal \<Plug>(coc-refactor)"
   endfunction
-  command! GGCrefactor call CocCustomCommand_refactor()
+  command! GGCocRefactor call CocCustomCommand_refactor()
 
   "/ Remap for format selected region
   " xmap <leader>f  <Plug>(coc-format-selected)
