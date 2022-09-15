@@ -274,11 +274,18 @@ syntax enable  "/ Turn on syntax highlighting.
         \ coc#refresh()
   inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>"
 
-      function! CheckBackSpace() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~ '\s'
-      endfunction
+  "/ Make <CR> auto-select the first completion item and notify coc.nvim to format on enter.
+  "/ NOTE:
+  "/   Use command ':verbose imap <CR>' to make sure character return is not re-mapped by
+  "/   other plugin otherwise the following will not work.
+  inoremap <silent><expr> <CR>
+        \ coc#pum#visible() ? coc#_select_confirm():
+        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+  function! CheckBackSpace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
 
   "/ Use <c-space> to trigger completion. This is same as vscode's Ctrl+Space.
     if has('nvim')
@@ -294,13 +301,6 @@ syntax enable  "/ Turn on syntax highlighting.
       inoremap <silent><expr> <c-@> coc#refresh()
     endif
 
-  "/ Make <CR> auto-select the first completion item and notify coc.nvim to format on enter.
-  "/ NOTE:
-  "/   Use command ':verbose imap <CR>' to make sure character return is not re-mapped by
-  "/   other plugin otherwise the following will not work.
-    inoremap <silent><expr> <CR>
-          \ coc#pum#visible() ? coc#_select_confirm():
-          \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
   "/ Use <CR> to confirm completion
