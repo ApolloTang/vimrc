@@ -485,6 +485,12 @@ syntax enable  "/ Turn on syntax highlighting.
   hi CocHintSign             ctermfg=darkcyan guifg=darkcyan
   "/ More highlight set in plugin/coc.vim
 
+  "/##
+  "/##  Coc Extension:
+  "/##
+  "/ https://github.com/neoclide/coc-yank
+  nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
 "/ ** ---------------------------------
 "/ ** [plugconfig coc END]
 
