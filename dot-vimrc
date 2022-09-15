@@ -278,8 +278,9 @@ syntax enable  "/ Turn on syntax highlighting.
   "/ <C-g>u breaks current undo, please make your own choice.
   "/ NOTE:
   "/ Use command ':verbose imap <CR>' to make sure character return is not re-mapped by other plugin.
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+  "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
   function! CheckBackSpace() abort
     let col = col('.') - 1
@@ -302,11 +303,6 @@ syntax enable  "/ Turn on syntax highlighting.
 
 
 
-  "/ Use <CR> to confirm completion
-  "/ NOTE:
-  "/   Use command ':verbose imap <CR>' to make sure character return is not re-mapped by
-  "/   other plugin otherwise the following will not work.
-    inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 
 
   "/ Colors in completion dropdown:
