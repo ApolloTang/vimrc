@@ -288,22 +288,18 @@ syntax enable  "/ Turn on syntax highlighting.
   endfunction
 
   "/ Use <c-space> to trigger completion. This is same as vscode's Ctrl+Space.
-    if has('nvim')
-      inoremap <silent><expr> <c-space> coc#refresh()
-    elseif has("gui_macvim")
-      inoremap <silent><expr> <c-space> coc#refresh()
-      "/ My alternative mapping:
-      inoremap <silent><expr> <C-o><space> coc#refresh()
-      "/ (I can't remember why I the above alternate mapping; I will consider remove it in the future)
-    else
-      "/ Vim in terminal pressing 'Ctrl+space' is triggering  <c-@> instead of <c-space>
-      "/ see: https://github.com/neoclide/coc.nvim/issues/2176
-      inoremap <silent><expr> <c-@> coc#refresh()
-    endif
-
-
-
-
+  if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+  elseif has("gui_macvim")
+    inoremap <silent><expr> <c-space> coc#refresh()
+    "/ My alternative mapping:
+    inoremap <silent><expr> <C-o><space> coc#refresh()
+    "/ (I can't remember why I the above alternate mapping; I will consider remove it in the future)
+  else
+    "/ Vim in terminal pressing 'Ctrl+space' is triggering  <c-@> instead of <c-space>
+    "/ see: https://github.com/neoclide/coc.nvim/issues/2176
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
 
   "/ Colors in completion dropdown:
     hi CocSearch ctermfg=12 guifg=#f80409    "/ fg for matched highlight
