@@ -413,6 +413,10 @@ syntax enable  "/ Turn on syntax highlighting.
   "nmap <leader>qf  <Plug>(coc-fix-current) "/ TODO <leader> not working, use <space>
   nmap <space>qf  <Plug>(coc-fix-current)
 
+  "/ Run the Code Lens action on the current line. (Only works on neovim by now.)
+  "nmap <leader>cl  <Plug>(coc-codelens-action) "/ TODO <leader> not working, use <space>
+  nmap <space>cl  <Plug>(coc-codelens-action)
+
   " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
   nmap <silent> <TAB> <Plug>(coc-range-select)
   xmap <silent> <TAB> <Plug>(coc-range-select)
