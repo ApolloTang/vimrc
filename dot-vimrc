@@ -1,11 +1,7 @@
-
 "/ **
 "/ **  first thing first [start]
 "/ **
 "/ {
-  set undodir=~/.vim/undodir "/ need to create this dir
-  set undofile
-
   set nocompatible
   set hidden          "/ Handle multiple buffers better.
                       "/ [COC] if hidden is not set, TextEdit might fail.
@@ -18,6 +14,26 @@
 "/ **
 "/ **  first thing first [End]
 "/ **
+
+
+"/ **
+"/ **  Enable undo
+"/ ----------------------
+"/ from https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
+  if !isdirectory($HOME."/tmp2")
+    call mkdir($HOME."/tmp2", "", 0770)
+  endif
+  if !isdirectory($HOME."/tmp2/vim")
+    call mkdir($HOME."/tmp2/vim", "", 0770)
+  endif
+  if !isdirectory($HOME."/tmp2/vim/undodir")
+    call mkdir($HOME."/tmp2/vim/undodir", "", 0700)
+  endif
+  set undodir=~/tmp2/vim/undodir "/ need to create this dir
+  set undofile
+"/ ^^^^^^^^^^^^^^^^^^^^^
+"/ **  Enable undo [END]
+"/
 
 
     "/ ------------------------------------------------
@@ -41,6 +57,8 @@
         "/ Make sure you use single quotes
 
         Plug 'junegunn/vim-easy-align'
+
+        Plug 'pixelastic/vim-undodir-tree'  "/ This is to get-around https://github.com/vim/vim/issues/346
 
         Plug 'scrooloose/nerdtree'
         Plug 'Xuyuanp/nerdtree-git-plugin'
