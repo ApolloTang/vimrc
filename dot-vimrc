@@ -58,7 +58,9 @@
 
         Plug 'junegunn/vim-easy-align'
 
-        Plug 'pixelastic/vim-undodir-tree'  "/ This is to get-around https://github.com/vim/vim/issues/346
+        Plug 'pixelastic/vim-undodir-tree'  "/ This is to get-around:
+                                            "/ https://github.com/vim/vim/issues/346
+                                            "/ https://stackoverflow.com/questions/63289924/vim-undofile-does-not-work-when-file-is-too-long
 
         Plug 'scrooloose/nerdtree'
         Plug 'Xuyuanp/nerdtree-git-plugin'
